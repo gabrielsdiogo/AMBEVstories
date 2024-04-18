@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding="UTF-8"?><unload unload_date="2024-04-18 19:25:33">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Tax Legis">d10c9c8f1b704dd44a422021f54bcbe7</application>
+<application_name>Tax Legis</application_name>
+<application_scope>x_mdbda_tax_legis</application_scope>
+<application_version>1.0.4</application_version>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description/>
+<inserted/>
+<name>Aoop: STRY0238808 - [LEG] Alteração do objeto nas tarefas (API)</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>dbb869ba1b2986104a422021f54bcb76</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-04-18 19:25:33</sys_created_on>
+<sys_id>2f037f831ba5461068eb0fe1f54bcb1d</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-04-18 19:25:33</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Tax Legis">d10c9c8f1b704dd44a422021f54bcbe7</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_x_mdbda_tax_legis_cadastro_de_responsaveis_do_objeto_objeto</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update&gt;&lt;sys_dictionary action="INSERT_OR_UPDATE" element="objeto" table="x_mdbda_tax_legis_cadastro_de_responsaveis_do_objeto"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;attributes/&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label&gt;Object&lt;/column_label&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;true&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;objeto&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;internal_type display_value="String"&gt;string&lt;/internal_type&gt;&lt;mandatory&gt;true&lt;/mandatory&gt;&lt;max_length&gt;250&lt;/max_length&gt;&lt;name&gt;x_mdbda_tax_legis_cadastro_de_responsaveis_do_objeto&lt;/name&gt;&lt;next_element/&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_dictionary&lt;/sys_class_name&gt;&lt;sys_created_by&gt;auriclecio.marques@aoop.com.br&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-05-04 18:28:20&lt;/sys_created_on&gt;&lt;sys_id&gt;3d5941e21b6ee1104a422021f54bcb35&lt;/sys_id&gt;&lt;sys_name&gt;Object&lt;/sys_name&gt;&lt;sys_package display_value="Tax Legis" source="x_mdbda_tax_legis"&gt;d10c9c8f1b704dd44a422021f54bcbe7&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Tax Legis"&gt;d10c9c8f1b704dd44a422021f54bcbe7&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_dictionary_x_mdbda_tax_legis_cadastro_de_responsaveis_do_objeto_objeto&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;gabriel.diogo@aoop.com.br&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-04-17 14:45:32&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_dictionary&gt;&lt;/record_update&gt;</payload>
+<payload_hash>820282240</payload_hash>
+<remote_update_set display_value="Aoop: STRY0238808 - [LEG] Alteração do objeto nas tarefas (API)">2f037f831ba5461068eb0fe1f54bcb1d</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-04-18 19:25:33</sys_created_on>
+<sys_id>23037f831ba5461068eb0fe1f54bcb1e</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18eec8523d80000001</sys_recorded_at>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-04-18 19:25:33</sys_updated_on>
+<table>x_mdbda_tax_legis_cadastro_de_responsaveis_do_objeto</table>
+<target_name>Cadastro de Responsáveis dos Objetos.Object</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid>bf59e13ec829861098977d06937b6924</update_guid>
+<update_guid_history>bf59e13ec829861098977d06937b6924:820282240,3dfbd57663ea21103e341c10427a9825:-1766152361,f889c5e2916ee1103aae4bdfe9e6bf13:-362823145</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Tax Legis">d10c9c8f1b704dd44a422021f54bcbe7</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_include_62843f721bcd0d1068eb0fe1f54bcbd1</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_mdbda_tax_legis.legisAPIUtils&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;true&lt;/client_callable&gt;&lt;description/&gt;&lt;name&gt;legisAPIUtils&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var legisAPIUtils = Class.create();
+legisAPIUtils.prototype = {
+    initialize: function() {},
+    createAtoAPI: function(data) {
+        //var id_area = data.responsible_area;
+
+        var AtoData = data;
+        var bodyResponse = '';
+        var docLength = AtoData.length;
+        var docClass;
+        var docClassLength;
+        var classAssignment;
+        var classAssignmentLength;
+        var erro = new sn_ws_err.ServiceError();
+
+
+        //Iterando no array de documents
+        for (var i = 0; i &lt; docLength; i++) {
+            docClass = AtoData[i].classification;
+            docClassLength = docClass.length;
+
+
+            //Iterando no array de classifications
+            for (var j = 0; j &lt; docClassLength; j++) {
+                classAssignment = docClass[j].assignment;
+                classAssignmentLength = classAssignment.length;
+                //Iterando no array de assignments
+                for (var k = 0; k &lt; classAssignmentLength; k++) {
+                    //checando campos obrigatórios vazios
+                    if (classAssignment[k].responsible_area != '' &amp;&amp; docClass[j].subject_matter != '' &amp;&amp; AtoData[i].uf != '' &amp;&amp; AtoData[i].summary != '' &amp;&amp; AtoData[i].title != '' &amp;&amp; AtoData[i].url_ts != '' &amp;&amp; classAssignment[k].impact_level != '' &amp;&amp; classAssignment[k].review != '' &amp;&amp; classAssignment[k].responsible != '') {
+                        //Criação do Ato (deve virar uma função)
+                        var criaAto = new GlideRecord('x_mdbda_tax_legis_ato');
+                        criaAto.newRecord();
+                        //Adding mandatory fields
+                        criaAto.setValue('area', classAssignment[k].responsible_area);
+                        criaAto.setValue('object', docClass[j].subject_matter);
+                        criaAto.setValue('state_province', AtoData[i].uf);
+                        criaAto.setValue('official_abstract', AtoData[i].summary);
+                        criaAto.setValue('beginning_term', AtoData[i].effective_date); // alteração proposta pela estória STRY0232906 
+                        criaAto.setValue('effective_start', AtoData[i].validity_beginning); // alteração proposta pela estória STRY0232906
+                        criaAto.setValue('title', AtoData[i].title);
+                        criaAto.setValue('act_url', AtoData[i].url_ts);
+                        if (classAssignment[k].impact_level == 'high') {
+                            criaAto.setValue('urgent', 'yes');
+                        } else {
+                            criaAto.setValue('urgent', 'no');
+                        }
+                        //criaAto.setValue('tax', classAssignment[k].review);
+                        criaAto.setValue('tax', AtoData[i].tax_name);
+                        criaAto.setValue('abstract', AtoData[i].synopsis);
+                        criaAto.setValue('end_term', AtoData[i].validity_end);
+                        criaAto.setValue('review_indicator', classAssignment[k].review);
+                        var grGroup = new GlideRecord('sys_user_group');
+                        var groupApi = classAssignment[k].responsible;
+                        var addGroup;
+                        grGroup.addQuery('sys_id', groupApi);
+                        grGroup.query();
+                        while (grGroup.next()) {
+                            addGroup = grGroup.getValue('sys_id');
+                        }
+                        //criaAto.setValue('abstract', AtoData.synopsis);
+                        //criaAto.setValue('abstract', AtoData.synopsis);
+                        criaAto.setValue('responsible_group', addGroup);
+                        bodyResponse = 'ATO: ' + criaAto.getValue('number') + ' ';
+                        //criaAto.getValue('number');
+
+
+                        criaAto.insert();
+                        return bodyResponse;
+
+
+                    } else {
+                        //Returning error in case any of the mandatory fields are empty
+                        var mandFields = [];
+                        erro.setStatus(400);
+                        if (classAssignment[k].responsible_area == '') {
+                            mandFields.push('responsible_area');
+                            //erro.setDetail('Mandatory field responsible_area is missing');
+                        }
+                        if (classAssignment[k].responsible == '') {
+                            mandFields.push('responsible');
+                            //erro.setDetail('Mandatory field responsible_area is missing');
+                        }
+                        if (docClass[j].subject_matter == '') {
+                            mandFields.push('subject_matter');
+                            //bodyResponse = bodyResponse +' Mandatory field subject_matter is missing';
+                        }
+                        if (AtoData[i].uf == '') {
+                            mandFields.push('uf');
+                            //bodyResponse = bodyResponse +' Mandatory field uf is missing';
+                        }
+                        if (AtoData[i].summary == '') {
+                            mandFields.push('summary');
+                            //bodyResponse = bodyResponse +' Mandatory field summary is missing';
+                        }
+                        /*if(AtoData[i].validity_beginning==''){
+                        	mandFields.push('validity_beginning');
+                        	//bodyResponse = bodyResponse +' Mandatory field validity_beginning is missing';
+                        }
+                        if(AtoData[i].effective_date==''){
+                        	mandFields.push('effective_date');
+                        	//bodyResponse = bodyResponse +' Mandatory field effective_date is missing';
+                        }*/
+                        if (AtoData[i].title == '') {
+                            mandFields.push('title');
+                            //bodyResponse = bodyResponse +' Mandatory field title is missing';
+                        }
+                        if (AtoData[i].url_ts == '') {
+                            mandFields.push('url_ts');
+                            //bodyResponse = bodyResponse +' Mandatory field url_ts is missing';
+                        }
+                        if (classAssignment[k].impact_level == '') {
+                            mandFields.push('impact_level');
+                            //bodyResponse = bodyResponse +' Mandatory field impact_level is missing';
+                        }
+                        erro.setMessage('Mandatory fields missing');
+                        erro.setDetail('The following mandatory fields are missing: ' + mandFields.toString());
+                        return erro;
+                    }
+                }
+
+            }
+
+        }
+
+    },
+
+
+    createAtoAPIV2: function(data) {
+
+        var AtoData = data;
+        var bodyResponse = '';
+        var docLength = AtoData.length;
+        var docClass;
+        var docClassLength;
+        var classAssignment;
+        var classAssignmentLength;
+        var erro = new sn_ws_err.ServiceError();
+        var AtoList = {};
+        var AtoArray = [];
+        var classAssign = {};
+        var additem = true;
+        var responsebody = "";
+        var criaAto = "";
+        var subjmatter = "";
+        var retErro;
+		var BLClass;
+
+        retErro = new legisAPIUtils()._jsonValidation(data);
+
+        if (retErro.length &gt; 0) {
+            erro.setStatus(400);
+            erro.setMessage('Mandatory fields missing');
+            erro.setDetail('The following mandatory fields are missing: ' + retErro.toString());
+            return erro;
+        }
+
+        //Iterando no array de documents
+        for (var i = 0; i &lt; docLength; i++) {
+            docClass = AtoData[i].classification;
+			BLClass = AtoData[i].busca_legal_classification;
+            docClassLength = docClass.length;
+            AtoArray = [];
+            //Iterando no array de classifications
+            for (var j = 0; j &lt; docClassLength; j++) {
+                classAssignment = docClass[j].assignment;
+                classAssignmentLength = classAssignment.length;
+
+                Object.keys(classAssignment).forEach(function(key) {
+
+                    AtoList = {};
+
+                    AtoList = classAssignment[key];
+                    AtoList.uf = AtoData[i].uf;
+                    AtoList.summary = AtoData[i].summary;
+                    AtoList.title = AtoData[i].title;
+                    AtoList.url_ts = AtoData[i].url_ts;
+                    AtoList.tax_name = AtoData[i].tax_name;
+                    AtoList.synopsis = AtoData[i].synopsis;
+                    AtoList.subject_matter = docClass[j].subject_matter;
+                    AtoList.city = AtoData[i].city;
+                    AtoList.id_subject = docClass[j].id_subject;
+                    AtoList.date_subject_matter = docClass[j].subject_matter;
+                    AtoList.id_content = AtoData[i].id_content;
+					AtoList.busca_legal_classification = AtoData[i].busca_legal_classification;
+					
+                    additem = true;
+
+                    Object.keys(AtoArray).forEach(function(key1) {
+
+                        if (AtoArray[key1].responsible == AtoList.responsible) {
+                            var subjmatter_atual = AtoArray[key1].subject_matter;
+                            var subjmatter_find = AtoList.subject_matter;
+                            var date_compare = new legisAPIUtils()._dateCompare(AtoArray[key1].validity_beginning, AtoList.validity_beginning);
+
+                            if (AtoList.impact_level == "high") {
+                                AtoArray[key1].impact_level = "high";
+                            }
+                            if (AtoList.review) {
+                                AtoArray[key1].review = true;
+                            }
+
+                            if ((subjmatter_atual.indexOf(subjmatter_find) != -1)) {
+                                AtoArray[key1].subject_matter = subjmatter_atual;
+                            } else {
+                                AtoArray[key1].subject_matter = subjmatter_atual + "\n" + subjmatter_find;
+                            }
+
+                            if (date_compare == -1) {
+                                AtoArray[key1].validity_beginning = AtoList.effective_date; // alteração proposta pela estória STRY0232906
+                                AtoArray[key1].validity_end = AtoList.validity_end;
+                                AtoArray[key1].effective_date = AtoList.validity_beginning; // alteração proposta pela estória STRY0232906
+                                AtoArray[key1].id_subject = AtoList.id_subject;
+                                AtoArray[key1].date_subject_matter = AtoList.date_subject_matter;
+                            }
+							
+                            AtoArray[key1].responsible_area = AtoList.responsible_area;
+                            additem = false;
+
+                        }
+
+                    });
+
+                    if (additem) {
+                        AtoArray.push(AtoList);
+                    }
+                });
+
+            }
+
+            Object.keys(AtoArray).forEach(function(key1) {
+
+                bodyResponse += new legisAPIUtils()._recordAto(AtoArray[key1]);
+
+            });
+
+        }
+
+        return bodyResponse;
+    },
+
+    _recordAto: function(data) {
+        //Criação do Ato
+        var bodyResponse = '';
+        var AtoData = data;
+        var groupApi = AtoData.responsible;
+        var criaAto = new GlideRecord('x_mdbda_tax_legis_ato');
+        criaAto.newRecord();
+
+        criaAto.setValue('area', AtoData.responsible_area);
+        criaAto.setValue('object', AtoData.subject_matter);
+        criaAto.setValue('state_province', AtoData.uf);
+        criaAto.setValue('official_abstract', AtoData.summary);
+        criaAto.setValue('beginning_term', AtoData.effective_date); // alteração proposta pela estória STRY0232906
+        criaAto.setValue('effective_start', AtoData.validity_beginning); // alteração proposta pela estória STRY0232906
+        criaAto.setValue('title', AtoData.title);
+        criaAto.setValue('act_url', AtoData.url_ts);
+        criaAto.setValue('id_content', AtoData.id_content);
+        if (AtoData.impact_level == 'high') {
+            criaAto.setValue('urgent', 'yes');
+            criaAto.setValue('impact', '2');
+        } else if (AtoData.impact_level == 'medium') {
+            criaAto.setValue('impact', '3');
+            criaAto.setValue('urgent', 'no');
+        } else if (AtoData.impact_level == 'low') {
+            criaAto.setValue('impact', '4');
+            criaAto.setValue('urgent', 'no');
+        } else {
+            criaAto.setValue('urgent', 'no');
+        }
+
+
+        criaAto.setValue('tax', AtoData.tax_name);
+        criaAto.setValue('abstract', AtoData.synopsis);
+        criaAto.setValue('end_term', AtoData.validity_end);
+        criaAto.setValue('review_indicator', AtoData.review);
+        criaAto.setValue('city', AtoData.city);
+        criaAto.setValue('beginning_term', AtoData.effective_date); // alteração proposta pela estória STRY0232906
+        criaAto.setValue('end_term', AtoData.validity_end);
+        criaAto.setValue('effective_start', AtoData.validity_beginning); // alteração proposta pela estória STRY0232906
+        criaAto.setValue('reclassification_id', AtoData.id_subject);
+        criaAto.setValue('reclassification_subject', AtoData.date_subject_matter);
+        criaAto.setValue('u_theme', AtoData.busca_legal_classification.toString());
+		criaAto.setValue('assignment_group', gs.getProperty('x_mdbda_tax_legis.draft.assignment_group'));
+		
+        if (AtoData.review) {
+            criaAto.setValue('state', -1);
+        }
+
+        criaAto.setValue('responsible_group', groupApi);
+
+        bodyResponse += 'ATO: ' + criaAto.getValue('number') + ',';
+
+        criaAto.insert();
+
+        return bodyResponse;
+
+    },
+
+    _dateCompare: function(current_date, new_date) {
+        var gd1 = new GlideDate();
+        gd1.setValue(new_date);
+        var gd2 = new GlideDate();
+        gd2.setValue(current_date);
+
+        return gd1.compareTo(gd2);
+    },
+
+    _jsonValidation: function(data) {
+        var mandFields = [];
+        var AtoData = data;
+        var docClass;
+        var classAssignment;
+        var arrayUtil = new global.ArrayUtil();
+
+        for (var i = 0; i &lt; AtoData.length; i++) {
+            docClass = AtoData[i].classification;
+            //Iterando no array de classifications
+            for (var j = 0; j &lt; docClass.length; j++) {
+                classAssignment = docClass[j].assignment;
+                //Iterando no array de assignments
+                for (var k = 0; k &lt; classAssignment.length; k++) {
+
+                    //Returning error in case any of the mandatory fields are empty
+                    if (classAssignment[k].responsible_area == '' &amp;&amp; !arrayUtil.contains(mandFields, "responsible_area")) {
+                        mandFields.push('responsible_area');
+
+                    }
+
+                    if (classAssignment[k].responsible == '' &amp;&amp; !arrayUtil.contains(mandFields, "responsible")) {
+                        mandFields.push('responsible');
+
+                    }
+
+                    if (AtoData[i].id_content == '' &amp;&amp; !arrayUtil.contains(mandFields, "id_content")) {
+                        mandFields.push('id_content');
+
+                    }
+                    if (docClass[j].subject_matter == '' &amp;&amp; !arrayUtil.contains(mandFields, "subject_matter")) {
+                        mandFields.push('subject_matter');
+
+                    }
+                    if (AtoData[i].uf == '' &amp;&amp; !arrayUtil.contains(mandFields, "uf")) {
+                        mandFields.push('uf');
+
+                    }
+                    if (AtoData[i].summary == '' &amp;&amp; !arrayUtil.contains(mandFields, "summary")) {
+                        mandFields.push('summary');
+
+                    }
+
+                    if (AtoData[i].title == '' &amp;&amp; !arrayUtil.contains(mandFields, "title")) {
+                        mandFields.push('title');
+
+                    }
+                    if (AtoData[i].url_ts == '' &amp;&amp; !arrayUtil.contains(mandFields, "url_ts")) {
+                        mandFields.push('url_ts');
+
+                    }
+                    if (classAssignment[k].impact_level == '' &amp;&amp; !arrayUtil.contains(mandFields, "impact_level")) {
+                        mandFields.push('impact_level');
+
+                    }
+                    if (docClass[k].id_subject == '' &amp;&amp; !arrayUtil.contains(mandFields, "id_subject")) {
+                        mandFields.push('id_subject');
+
+                    }
+
+                    if (!classAssignment[k].review) {
+                        if (AtoData[i].validity_beginning == '' &amp;&amp; !arrayUtil.contains(mandFields, "validity_beginning")) {
+                            mandFields.push('validity_beginning');
+
+                        }
+                        if (AtoData[i].effective_date == '' &amp;&amp; !arrayUtil.contains(mandFields, "effective_date")) {
+                            mandFields.push('effective_date');
+
+                        }
+                        if (AtoData[i].validity_end == '' &amp;&amp; !arrayUtil.contains(mandFields, "validity_end")) {
+                            mandFields.push('validity_end');
+
+                        }
+                    }
+
+                }
+            }
+        }
+        return mandFields;
+    },
+
+    _recSynopsis: function(data) {
+        var id = data.id_content;
+        var synopsis = data.synopsis;
+        var upd = '';
+        var ret = {}; //''; //'unidentified id';
+
+        var recAto = new GlideRecord('x_mdbda_tax_legis_ato');
+        recAto.addQuery('id_content', id);
+        recAto.query();
+        while (recAto.next()) {
+            recAto.setValue('abstract', synopsis);
+            recAto.update();
+            ret.update = true;
+            upd += recAto.getValue('number') + ',';
+        }
+        if (upd) {
+            ret.content = "Synopsis updated in " + upd;
+        } else {
+            ret.update = false;
+            ret.content = 'ID content not found';
+        }
+
+        return ret;
+    },
+
+    updateAto: function(data) {
+        var ret = '';
+        var objdata = {};
+        var AtoData = data;
+        var bodyResponse = '';
+        var docLength = AtoData.length;
+        var erro = new sn_ws_err.ServiceError();
+        var additem = true;
+        var retErro;
+        var res;
+
+
+
+        if (docLength &gt; 1) {
+            erro.setStatus(400);
+            erro.setMessage("Error message");
+            erro.setDetail('The following errors have occurred: invalid json');
+            bodyResponse = erro;
+        }
+
+        if (bodyResponse == '') {
+            retErro = new legisAPIUtils()._validUpdate(data);
+
+            if (retErro.length &gt; 0) {
+                erro.setStatus(400);
+                erro.setMessage('Mandatory fields missing');
+                erro.setDetail('The following mandatory fields are missing: ' + retErro.toString());
+                bodyResponse = erro;
+            }
+
+        }
+        if (bodyResponse == '') {
+            //Iterando no array de documents
+            for (var i = 0; i &lt; docLength; i++) {
+
+                objdata.id_content = AtoData[i].id_content;
+                objdata.synopsis = AtoData[i].synopsis;
+                res = new legisAPIUtils()._recSynopsis(objdata);
+            }
+
+            if (res.update) {
+                bodyResponse = res.content;
+            } else {
+                erro.setStatus(400);
+                erro.setMessage("Error message");
+                erro.setDetail('The following errors have occurred: ' + res.content);
+                bodyResponse = erro;
+            }
+
+        }
+
+        return bodyResponse;
+    },
+
+
+    _validUpdate: function(data) {
+        var validation = [];
+        var AtoData = data;
+
+        for (var i = 0; i &lt; AtoData.length; i++) {
+
+            if (AtoData[i].id_content.trim() == '') {
+                validation.push('id_content');
+
+            }
+            if (AtoData[i].synopsis.trim() == '') {
+                validation.push('synopsis');
+
+            }
+
+        }
+
+        return validation;
+    },
+
+    createAtoAPIV3: function(data) {
+
+        var requestDoc = data.document;
+        var AtoData = requestDoc;
+        var bodyResponse = {};
+        var bodyResponseArray = [];
+        var docLength = AtoData.length;
+        var docClass;
+        var docClassLength;
+        var classAssignment;
+        var classAssignmentLength;
+        var erro = new sn_ws_err.ServiceError();
+        var AtoList = {};
+        var AtoArray = [];
+        var ImpList = {};
+        var ImpArray = [];
+        var ObjList = {};
+        var ObjArray = [];
+        var classAssign = {};
+        var additem = true;
+        var responsebody = "";
+        var retErro;
+        var erroData = {};
+		var BLClass;
+
+        retErro = new legisAPIUtils()._jsonValidation(requestDoc);
+
+        if (retErro.length &gt; 0) {
+            erroData.integration_type = 'Busca Legal Inbound Log';
+            erroData.http_status = '400';
+            erroData.call_type = 'inbound';
+            erroData.request = JSON.stringify(data);
+            erroData.response = 'The following mandatory fields are missing: ' + retErro.toString();
+            erroData.status = 'Erro';
+
+            erro.setStatus(400);
+            erro.setMessage('Mandatory fields missing');
+            erro.setDetail('The following mandatory fields are missing: ' + retErro.toString());
+            new x_mdbda_tax_fiscal.TaxUtils().createLogIntegration(erroData);
+            return erro;
+        }
+
+        retErro = new legisAPIUtils()._chkDuplicate(requestDoc);
+
+        if (retErro.length &gt; 0) {
+            erroData.integration_type = 'Busca Legal Inbound Log';
+            erroData.http_status = '420';
+            erroData.call_type = 'inbound';
+            erroData.request = JSON.stringify(data);
+            erroData.response = 'Duplicate record found: ' + retErro.toString();
+            erroData.status = 'Erro';
+
+            erro.setStatus(420);
+            erro.setMessage('Duplicate record');
+            erro.setDetail('Duplicate record found. Please correct and try again.');
+            new x_mdbda_tax_fiscal.TaxUtils().createLogIntegration(erroData);
+            return erro;
+        }
+
+
+        //Iterando no array de documents
+        for (var i = 0; i &lt; docLength; i++) {
+            docClass = AtoData[i].classification;
+			BLClass = AtoData[i].busca_legal_classification;
+            docClassLength = docClass.length;
+            AtoArray = [];
+            ImpArray = [];
+            ObjArray = [];
+            AtoList = {};
+
+            AtoList.uf = AtoData[i].uf;
+            AtoList.summary = AtoData[i].summary;
+            AtoList.title = AtoData[i].title;
+            AtoList.url_ts = AtoData[i].url_ts;
+            AtoList.tax_name = AtoData[i].tax_name;
+            AtoList.synopsis = AtoData[i].synopsis;
+            AtoList.city = AtoData[i].city;
+            AtoList.id_content = AtoData[i].id_content;
+            AtoList.date_edition = AtoData[i].date_edition;
+            AtoList.date_publication = AtoData[i].date_publication;
+			AtoList.busca_legal_classification = AtoData[i].busca_legal_classification;
+
+            //Iterando no array de classifications
+            for (var j = 0; j &lt; docClassLength; j++) {
+                classAssignment = docClass[j].assignment;
+                classAssignmentLength = classAssignment.length;
+
+                Object.keys(classAssignment).forEach(function(key) {
+
+                    ImpList = {};
+
+                    ImpList = classAssignment[key];
+
+                    ImpList.subject_matter = docClass[j].subject_matter;
+                    ImpList.id_subject = docClass[j].id_subject;
+                    ImpList.id_content = AtoData[i].id_content;
+
+                    additem = true;
+
+
+                    Object.keys(ImpArray).forEach(function(key1) {
+
+
+                        if (ImpArray[key1].responsible == ImpList.responsible) {
+                            //Condição removida para permitir a criação de objetos com reviews diferentes em uma implementação
+                            /*if (ImpList.review) {
+								
+                                //ImpArray[key1].review = true;
+                            }*/
+
+                            additem = false;
+
+                        }
+
+                    });
+
+                    ObjArray.push(ImpList);
+                    if (additem) {
+                        ImpArray.push(ImpList);
+                    }
+
+
+                });
+
+            }
+
+            bodyResponseArray = bodyResponseArray.concat(new legisAPIUtils()._recordAtoV2(AtoList, ImpArray, ObjArray));
+        }
+
+        bodyResponse["ATO"] = bodyResponseArray;
+
+        var retData = {};
+        retData.integration_type = 'Busca Legal Inbound Log';
+        retData.call_type = 'inbound';
+        retData.http_status = '200';
+        retData.request = JSON.stringify(data);
+        retData.response = JSON.stringify(bodyResponse);
+        retData.status = 'Integrado';
+
+        new x_mdbda_tax_fiscal.TaxUtils().createLogIntegration(retData);
+
+        return JSON.stringify(bodyResponse);
+    },
+
+    
+
+    _recordAtoV2: function(data, impldata, objdata) {
+        //Criação do Ato
+        var bodyResponse = [];
+        var AtoData = data;
+        var ImpData = impldata;
+        var ObjData = objdata;
+        var groupApi = AtoData.responsible;
+        var idAto = '';
+        var criaImp = '';
+        var criaObj = '';
+        var idImp = '';
+        var objAct = new legisAPIUtils()._chkAct(AtoData.id_content); // verifica se já existe implementação para o id_content.
+        var actNum = '';
+        var recAto;
+
+        if (objAct.sys_id) {
+
+            idAto = objAct.sys_id;
+            actNum = objAct.number;
+
+        } else {
+            recAto = new GlideRecord('x_mdbda_tax_legis_ato');
+            recAto.newRecord();
+
+            recAto.setValue('state_province', AtoData.uf);
+            recAto.setValue('official_abstract', AtoData.summary);
+            recAto.setValue('title', AtoData.title);
+            recAto.setValue('act_url', AtoData.url_ts);
+            recAto.setValue('id_content', AtoData.id_content);
+            recAto.setValue('tax', AtoData.tax_name);
+            recAto.setValue('abstract', AtoData.synopsis);
+            recAto.setValue('city', AtoData.city);
+            recAto.setValue('assignment_group', gs.getProperty('x_mdbda_tax_legis.draft.assignment_group'));
+            recAto.setValue('responsible_group', groupApi);
+            recAto.setValue('app_version', 'v2');
+			recAto.setValue('u_theme', AtoData.busca_legal_classification.toString());
+
+            idAto = recAto.insert();
+            actNum = recAto.getValue('number');
+
+        }
+
+        bodyResponse.push(actNum);
+
+
+        Object.keys(ImpData).forEach(function(key) {
+            if (objAct.sys_id) {
+                idImp = new legisAPIUtils()._chkImp(idAto, ImpData[key].responsible); //verifica se ja existe implementação para o Ato/responsible.
+            }
+
+
+            if (!idImp) {
+                //Criação das tarefas de implementação
+                criaImp = new GlideRecord('x_mdbda_tax_legis_implementation');
+                criaImp.newRecord();
+                criaImp.setValue('parent', idAto);
+                criaImp.setValue('act', idAto);
+                criaImp.setValue('app_version', 'v2');
+                criaImp.setValue('assignment_group', ImpData[key].responsible);
+                criaImp.setValue('area', ImpData[key].responsible_area);
+
+                idImp = criaImp.insert();
+
+            }
+
+            //Criação dos Objetos.
+            Object.keys(ObjData).forEach(function(key1) {
+
+                if (ImpData[key].responsible == ObjData[key1].responsible) {
+                    criaObj = new GlideRecord('x_mdbda_tax_legis_object');
+                    criaObj.newRecord();
+                    criaObj.setValue('parent', idImp);
+                    criaObj.setValue('implementation', idImp);
+                    criaObj.setValue('id_subject', ObjData[key1].id_subject);
+                    criaObj.setValue('id_content', ObjData[key1].id_content);
+                    criaObj.setValue('subject_matter', new legisAPIUtils()._checkSubjectMatter(ObjData[key1].subject_matter, ObjData[key1].responsible));
+                    criaObj.setValue('validity_beginning', ObjData[key1].effective_date); // alteração proposta pela estória STRY0232906
+                    criaObj.setValue('effective_date', ObjData[key1].validity_beginning); // alteração proposta pela estória STRY0232906
+                    criaObj.setValue('type', 'analysis');
+                    criaObj.setValue('validity_end', ObjData[key1].validity_end);
+                    criaObj.setValue('review', ObjData[key1].review);
+                    criaObj.setValue('impact_level', ObjData[key1].impact_level);
+                    criaObj.setValue('responsible_group', ObjData[key1].responsible);
+                    criaObj.setValue('formula', ObjData[key1].task_formula);
+
+                    //Date edition and date of publication
+                    criaObj.setValue('date_publication', AtoData.date_publication);
+                    //Converte data para o formato correto
+                    var partesData = AtoData.date_edition.split('.');
+                    var dataConvertida = partesData[2] + "-" + partesData[1] + "-" + partesData[0];
+                    criaObj.setValue('date_edition', dataConvertida);
+					criaObj.setValue('assignment_group', gs.getProperty('x_mdbda_tax_legis.draft.assignment_group'));
+
+                    if (ObjData[key1].review == true) {
+                        criaObj.setValue('state', -1);
+                        
+                    }
+                    //Condição realizada no flow Aoop: calcula Implementation due date
+                    /*else{
+                    	criaObj.setValue('assignment_group',ObjData[key1].responsible);
+                    }*/
+                    if (ObjData[key1].impact_level == 'high') {
+                        criaObj.setValue('urgent', 'yes');
+                    } else if (ObjData[key1].impact_level == 'medium' || ObjData[key1].impact_level == 'low') {
+                        criaObj.setValue('urgent', 'no');
+                    } else {
+                        criaObj.setValue('urgent', 'no');
+                    }
+
+                    criaObj.insert();
+                }
+
+            });
+            idImp = '';
+        });
+
+
+        return bodyResponse;
+
+    },
+
+    _checkSubjectMatter: function(subject_matter, responsible_group){
+        var grXMTLCDRDO = new GlideRecord('x_mdbda_tax_legis_cadastro_de_responsaveis_do_objeto');
+        grXMTLCDRDO.addQuery('grupo_solucionador', responsible_group);
+        grXMTLCDRDO.addQuery('objeto', subject_matter);
+        grXMTLCDRDO.query();
+        if(grXMTLCDRDO.next()){
+            return grXMTLCDRDO.getValue('sys_id');
+        }else{
+            grXMTLCDRDO.setValue('objeto', subject_matter);
+            grXMTLCDRDO.setValue('grupo_solucionador', responsible_group);
+            var result = grXMTLCDRDO.insert();
+            return result;
+        }
+    },
+
+    _chkDuplicate: function(data) {
+
+        var AtoData = data;
+        var docClass;
+        var classAssignment;
+        var arrayUtil = new global.ArrayUtil();
+        var duplicates = [];
+        var chkDupl;
+        var qry = '';
+
+        for (var i = 0; i &lt; AtoData.length; i++) {
+            docClass = AtoData[i].classification;
+
+            for (var j = 0; j &lt; docClass.length; j++) {
+                classAssignment = docClass[j].assignment;
+
+                for (var k = 0; k &lt; classAssignment.length; k++) {
+                    qry = 'id_content=' + AtoData[i].id_content + '^id_subject=' + docClass[j].id_subject + '^responsible_group=' + classAssignment[k].responsible;
+
+                    chkDupl = new GlideRecord('x_mdbda_tax_legis_object');
+                    chkDupl.addEncodedQuery(qry);
+                    chkDupl.query();
+
+                    if (chkDupl.next()) {
+                        duplicates.push(chkDupl.getUniqueValue());
+
+                    }
+                }
+            }
+        }
+
+        return duplicates;
+    },
+
+    _chkAct: function(id_content) {
+
+        var seek = id_content;
+        var chkAct;
+        var chkImp;
+        var objAct = {};
+
+        chkAct = new GlideRecord('x_mdbda_tax_legis_ato');
+        chkAct.addQuery('id_content', seek);
+        chkAct.query();
+
+        if (chkAct.next()) {
+            if (chkAct.getValue('state') == 4) { //caso o ato esteja cancelado verificar se possui implementação
+                chkImp = new GlideRecord('x_mdbda_tax_legis_implementation');
+                chkImp.addQuery('parent', ato);
+                chkImp.query();
+
+                if (chkImp.next()) {
+                    objAct.sys_id = chkAct.getUniqueValue();
+                    objAct.number = chkAct.getValue('number');
+                }
+            } else {
+                objAct.sys_id = chkAct.getUniqueValue();
+                objAct.number = chkAct.getValue('number');
+            }
+            if (chkAct.getValue('state') == 3 || chkAct.getValue('state') == 4) {
+                chkAct.setValue('state', 1);
+                chkAct.update();
+            }
+        }
+
+        return objAct;
+    },
+
+    _chkImp: function(ato, responsible) {
+
+        var chkImp;
+        var idImp = '';
+
+        chkImp = new GlideRecord('x_mdbda_tax_legis_implementation');
+        chkImp.addQuery('parent', ato);
+        chkImp.addQuery('assignment_group', responsible);
+        chkImp.query();
+
+        if (chkImp.next()) {
+            idImp = chkImp.getUniqueValue();
+            if (chkImp.getValue('state') == 5 || chkImp.getValue('state') == 3) {
+                chkImp.setValue('state', 1);
+                chkImp.update();
+            }
+
+        }
+
+        return idImp;
+    },
+
+    type: 'legisAPIUtils'
+};]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;fernando.lourenco@aoop.com.br&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2022-01-18 19:38:10&lt;/sys_created_on&gt;&lt;sys_id&gt;62843f721bcd0d1068eb0fe1f54bcbd1&lt;/sys_id&gt;&lt;sys_mod_count&gt;507&lt;/sys_mod_count&gt;&lt;sys_name&gt;legisAPIUtils&lt;/sys_name&gt;&lt;sys_package display_value="Tax Legis" source="x_mdbda_tax_legis"&gt;d10c9c8f1b704dd44a422021f54bcbe7&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="Tax Legis"&gt;d10c9c8f1b704dd44a422021f54bcbe7&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_62843f721bcd0d1068eb0fe1f54bcbd1&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;gabriel.diogo@aoop.com.br&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-04-17 19:49:47&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-1869977410</payload_hash>
+<remote_update_set display_value="Aoop: STRY0238808 - [LEG] Alteração do objeto nas tarefas (API)">2f037f831ba5461068eb0fe1f54bcb1d</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-04-18 19:25:33</sys_created_on>
+<sys_id>a7037f831ba5461068eb0fe1f54bcb1e</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18eed9bafd40000001</sys_recorded_at>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-04-18 19:25:33</sys_updated_on>
+<table/>
+<target_name>legisAPIUtils</target_name>
+<type>Script Include</type>
+<update_domain>global</update_domain>
+<update_guid>a00f6af2d6e1c6109d867316c521b020</update_guid>
+<update_guid_history>a00f6af2d6e1c6109d867316c521b020:-1869977410,a6aee2f26ee1c6108760c5f7e907225c:1901672025,09ddae3256e1c61080f4595d68e0b2a7:253121237,4d9d6a3259e1c610e69867b325c18664:1012475576,cc3d223223e1c6105da94796f18079f2:-1001509576,39c4d232fd21c6103e54c7037dbc069a:397535800,e6a7337b5a88c210259e2ebc2126e87f:1446765667,d0777b3bf788c21057515a597f12159a:-1727219357,4a2377339188c210ba4564d4eb3b2b5b:1700425315,4fe23bff7a48c210d3cfb5f7fa766132:-216384925,f9a2bfbfa348c210a830ad2a20040572:1428519991,1e427fbf6548c210ffab7b14093a9b27:-1999124681,7cdda33bce48c210d6996ccf4eef7d91:1446765667,39adeff79948c2101f54a88e2c709e8d:-1405705465,a68d2bf78948c21066a2790d5fe79cc6:-1910981591,876dabf79848c2106408690654786f74:1738310795,1f1debb7b748c2108a3a2b469d39b07f:1580179475,d7434aba3913bd10981cb7c7152ca4d3:2045738883,b8095cf620977d10aca1c65251713f87:423620994,f1a4dcaa75173d10409bb0cd62124bef:734188610,c43410aa0c173d10f3faa9583fdcc7b8:-156542725,8da3d06a59173d10c386f3ff71715ba6:-1210088526,2b63182afb173d1034d98df11797e4d1:-1367726062,d5dfcc625a173d10baf44baea5c71ba0:1801432829,b0bfc86297173d103e1856bcd9977140:-1537724724,01af086208173d1006b7969a0e33b2d5:-1460040596,6c9f8462c7173d1090b2762fd7718db9:44858718,fc6c8cea98d33d10bd8b51429c4b9d49:980866485,2c5c4cea8ed33d10671ccc6f6a520a56:-1944525833,e5fb48aa9ad33d1051ac7401a502d82c:-1754751429,21ab4c6a54d33d1092e09f193a9a8eb4:293161426,f38b486a44d33d102bc54d2927dbf618:219816181,dc8bc46ab1d33d103a678ba7470f0faa:1577076885,026b446afcd33d10f44faf71c5bab70d:1432652940,28fa402a65d33d104c812ff4e5672808:820147631,57ba04e67bd33d1044786f099f1047a1:588931900,661a48a6c1d33d10eb94fe468e48c8f0:48179173,7099046653d33d1010e22473509a1bf9:-1664403740,05544c6ac4933d10eee9d1bf1d3f0e90:-813050028,4834c46a98933d1017e2ced5eaa1c5aa:-838215275,c8f3c46a57933d1025e5915304786539:1017852399,fc1208e636933d1020ffa4baddc4ac4e:-813050028,c590486680933d103494bd41597b852c:689973661,754fe3527f533d100c11e83a7b0e5718:-1752816862,f4deeb5ee2133d10acda61649d20b1ea:-1594667391,8dae275e45133d101af93a7b6dfbf5dc:-1255838615,f2f56b9e84dff910446b9ac1a16298be:582642648,4fb5a79e0adff91051bdf0738524a222:-1371958423,b2356f5e48dff9107130d9bdfe81f325:1761227166,7b73635a99dff9104662e7ca575a4c01:883961628,34aa5753fab6f1100bfcfe85fce424cf:-1752816862,831a9713abb6f11091daa3f7e7e2f8f4:226224533,b00a1713b4b6f1101068e1faade73c26:1634300529,de56531f7d76f110522c9bb4d7950581:-1752816862,c0859f9bb376f1102b56d0b8580a39be:2141616881,8b34d71bf076f11074a46c1fd65bd9bd:-529381681,f3c357972f76f110cf0a2cf01abf2764:-1778677233,9bb079e45a83e550a7f863691560f09c:1124646884,48803da4ef83e550c1a3e04e6fbca666:799226744,6b2cbd47ec76e9100273ae2d40ec857b:1285957763,74eb39471176e910eae165b4e681802a:787047733,eb3b7147e176e910e2556c67fc216870:965076387,45eafdc3cc76e910d01ae0b99bacbbee:1094850246,1c7af1c39e76e91000d9efa4afad8be3:1976197973,d8e9f1c36976e9104da2ac1064026611:-1316040960,4cf875034976e9102e1ad9d5b7605d31:-528745043,b377398f9e36e9103df1a399fec7c4f7:-1438560463,d22175c744f2e91058e07506a24d595f:-1031215575,92f03987cbf2e9107c0e9036bdbed4cf:60473827,086fadc3d1f2e910b090ee43a70bf85c:-1031215575,0b3fa5c379f2e910afeb073897f99e69:191538021,a43fe1c3e5f2e91056850b2dd2425ae5:1555954386,5d7ee9435ff2e910bd60d2d025f1572c:-777085204,394e2d0300f2e910625f17192d055167:453613186,4f0da14fcfb2e910bc8abbe7254aa161:-1758694589,14b9000005886550e02b6ab0c1f02189:167262928,12888713d6bb51501456f5aeae509f40:-396066352,37a307d30e7b51508719286395ea976d:-556939062,9481dad3cb33515014375178fc45ded0:-481159559,9a1192d32d335150929dbc7091d3283e:1582065949,ead01e93493351508bcaa1dd2a64fb19:-9413891,e8a09693e1335150ef6f9e98af1d92c1:934500076,5e00d6534933515088c03a1ce9daf511:59807131,156fc2139a335150ee78671c6ae512de:-1638809182,b5ea4a57a3ff115026f590296965bc3c:954168166,674a4217adff1150c29c798036da5343:608089016,abf84a53c8ff1150b2273e4de9e76450:272543568,2258c6df5ebf11506f9bd8ebf30e8f1e:2044045813,1097429fe6bf1150db406ecc7fade706:778656897,ae17c65fafbf115072bba2c75c1a66f6:1781898178,7896869bf9bf1150366c7572ea2341f0:1816163324,2f8506d716bf1150e2d2b01fbd3c701c:-1891809082,a4450297cbbf115078897238942f6a8c:427964007,8c830ad36fbf11506d9e3d9219398db1:977508216,7be2c2931bbf1150b88483cd8a045be0:1436296249,52ebb5d77f7f115045210d9e549880a8:1881809455,d71c217a3cb39d10b26e51c6d1f2c6ed:920883206,a3fb6d3a51b39d107ea38d121f136a76:2050026949,ea8f113e83739d10fd9e592220a5a015:-1530191162,086cddf60e739d10e93c7b46ffb57ecd:-110296480,d66b51b61b739d105f47092442d2c76a:1924714758,da2b9db670739d10efe7a0846cc19f4c:960092205,d2f1997639339d10ddda72719b366c33:173018351,f96e817e95ff5d102e198d1d67aedb5e:-933561777,8b1e0dfaadff5d10d6c624683fd960a2:-1149815819,34bd857a85ff5d108565e5894a4c874c:-399027346,9cfb413647ff5d10d9d9fe2b295bb637:-1522418783,40bb89f280ff5d10222c69b66eab3649:1893054020,ed1b4572dfff5d102111102ecb16cd33:-1753762124,e14766aee8e75510451b5d7cead4ad55:755987415,7a7ab44566639910669fed015f946866:-247256616,4c987005976399101015f264263352d3:-421669134,a00838c10763991010788173efaa0446:-536278550,87a6f841ab6399104681396d114fce8a:812858803,038b94c9efeb59101e8b67845aa62094:729018677,9a4ff7bc9d67591049901e72ffa89613:-671210963,3529fbe8f3eb5510a9a10fd0e2273afb:1073758323,21e1b72455eb5510d56c96da9faff33f:1195301260,4371b3249beb5510c6e7f9303e9c08a1:1462559384,e321bfe081eb5510de946f0bb8516ccc:-1394585901,daa0f7e0f0eb551044841544ba4e12ff:-41962939,ea7fe7a052eb5510cbe0b79ca59feab6:372319642,711fa3a021eb5510bb384debd27b0330:-1056464411,c0fe23a078eb5510dd49cd072bbdac7c:-503487776,3405af24c8ab5510393ca2850aa1991d:-1932720566,e7ca0368c2e755104737a350757b1280:-146995714,0ce05620deeb1510b7ab3ebdc25816e5:808228045,3a3ad61897a7d110b5dda0bf01f52f07:-1993705539,ab591ad403a7d1100493a3150a55eab3:-458477060,fa491ad4fda7d11003b80de6541f210a:726243912,b9b85e9459a7d11027d6778853bc1bc9:598151520,13f75e54a8a7d11082f22a1d1913481e:174220168,0a12ca258f0b5510978e86b828b8b9e0:861217209,e8b078e5c8cb1510980e546c2feafffa:1763752365,c5b5511d4d0fd1104f8dc681eec245c1:-852445569,bfa49d990a0fd110015fbc283754b23b:-1028210002,212099d5620fd110decb69c7dffe1a9f:-676800575,c989895deecbd110aacac7b9f9b343c9:-965794233,f609c51d96cbd110db2fb9447931122b:1852792416,5093b0d1344bd110c78b16553313e6ba:-1279848516,2b133491804bd110226c3723ec275944:1173112104,c41d2fc1b443d11026620a8e5cc99fc9:-1666821898,e0be9b894fcf91109eab7dbd35d2b8ec:-793904868,f07ed38997cf91101620da124a8f691e:-1352009380,34bc75d8bb4b9d10f7c617a7ff83d36b:1422584061,a4cb79d8094b9d10ea80788ed424ca9d:-1075988256,1b4bf1d8724b9d10bb56688bd83c5857:1422584061,002b3d98c94b9d1006c1fa344526e078:-1218563040,ea9a3998d84b9d100b217da92b1d526b:-1018142483,a05a3598df4b9d10be42291fc354ed3c:-846386519,490a7958714b9d104e19b6c21d7f33ba:-999500832,646971584f4b9d10625cdbeb4012aac4:857006308,7b293158e24b9d1069dcf5b3459d59d4:-698055635,2af831582d4b9d1098d2d587ff3e78ce:83719260,65c73dd4af4b9d105776d568c8a57e3b:-916092277,478779d4ad4b9d101b34cc45beef2ee7:1216798606,1867f5d4a74b9d1082232779bf5c3736:1486716701,73173d94074b9d106ac37270b5d2d97b:1715534828,662671945d4b9d10be0479a98635863f:763063565,03553954bd4b9d10966da5a9d1930e1c:-1777640456,8444f514554b9d1029ceb9963844b14e:-1417188655,50a3fdd0034b9d101a43847a5d2cb56e:297899981,e47fed1ce80b9d10bdc635846c72ef22:1842505218,fdcee15c470b9d1046043b9a0040e793:924416320,456e251cac0b9d10bd52ecb69e4ce5ed:593864995,756acc187e8f5d1047763fe570d6484c:-2107309620,2c6089009a035d10fce5bd245a5fec50:515756487,2d30890007035d108aebfe6fd378445a:-1835469592,85004500f1035d104e29fa71b21643f1:-1374518833,6b8fbccce0cf1d1053f53d925ccab686:2022587920,db8eb48c4ccf1d1027355144b7a53dab:2117349468,9d2eb48ccfcf1d107c87198bdd688fa6:1258366405,1cedf84c8fcf1d104f940564c138cab9:1395738524,010dbc8868cf1d10165b5ebd7788d6a5:521508953,26ccbc8802cf1d109e5ae2492ba6adc1:1026547399,4cd7e2dffffe191044b4916e01ef003e:-1017101216,3ba062db9d3e191056748f1b97c4d296:753306979,1258521be17a1910d9f3c6383596af14:1151931786,bef478df30b2d5102b5938fbed3e9582:1489143703,016df7fcdddad11ce273882421d76688:-268665509,ed4dbbfcf7dad11c0aa73b327a057846:-52536633,742ce728019a55d845126c42ca5f59ca:1857627667,f15bab2cd25a55d812116738fa18237f:-472100173,3ddaab64db5a55d85452b83d6c4774c3:-257764123,1c9f976488de15d8115c3c600ce6166e:1857627667,111eba1040d655980bccf9418d7139eb:978325942,425dba14fd965598adf9d103fa4d17a3:-1964124470,707cba583656559851019cd38d005de2:1405395693,940cbe9079565598d6067ed5f3708cd4:-402647429,cdcfae5cd45a159877ad32dc69489d52:1084951168,c89f26d8445a15984206ad9293403e35:1940778592,ec9e225c2a1a1598e3383d32fde2c09c:1980201786,072dae943ed615985ef52024ac67bab9:-839757922,129c269c76961598801d0de841ee2b42:-105093221,865c6ed804961598969d00d5da6d02d9:995742299,700c2a940e9615987e6572f27d3fabf2:1118042757,94c8e698c0d215985e07a335cab09b49:-1908480981,33f5e25c99121598ad18a076a9f44191:799785059,4ee5e2d8e1121598ba632925ae2d43c1:-799651968,6ac5ee58531215988b8147c94b6e4c69:1482319500,0e95a2183f12159846ce96519a3deb25:1053377911,26846e140eded198c9ce980f7f72f86a:-784058332,78bf52d491dad1980b4ec43ccbf6f6c4:-11159932,55eed65cc29ad19822ee3317920f4eaa:1167233890,670e1a505b9ad1980ab9e22d1d43b30e:-1248660153,ceeb72cc815ad558f2eded6636eb611e:-136937570,ef69ee8c74da9558092563275f056673:-1666629028,6a132a0492569558319ed566cdb67947:681744540,4f0162404a169558b4ed9fb92634946e:-860590140,387f1ac4ff9295589f473ff1181ccf38:-1175036958,31de5e44d9d2955833396c6973278151:-1232904414,682ed2408292955828c7c7c02d7db042:-822805565,c98d96007d929558a4c57db8cff43c30:-1898427593,c7bc560c8c129558631bfab52952eb1d:1751414260,bcead6cc779e555813281ec4df668aaf:-20111065,a040db63eb865dd452b0966df1837f36:-1248660153,215e03e75b065dd4a0c0f885be725c88:411259847,bed668b624469910d9ecc7deff8ae7f8:-1248660153,1c09d43688c299106446b1ae32c5115b:411259847,6e6d850cf40d5950325e92f94544a8b1:129354695,e1a40d84ed815950da8df46784b40d30:-1195445576,840b30815fecd990c4501a91ae9264ee:-1422164232,840b30815fecd990c4501a91ae9264ee:-1422164232,3ce53009eeacd99093a1c5e627dc9772:-423100849,506d2c41c96cd9906a7025d3084df747:-379355408,3feb2c4d922cd9909769080009b1e1e5:-919008688,28dba44de12cd990ff157879b4eb03f3:83191930,2122600565e8d9901d113165cef58047:-1430864614,aee02841bde8d9903a0f0a04917c9394:-448340315,5a80e80136e8d9900073272f96f518b9:1502941882,5e402401d6e8d990a77ddd85684bb002:502269699,6aae18c9eba8d99064b4ad04002cb3dc:-371964539,7a4e5849faa8d9908e1df5934607e14b:-241712291,1c4d90c127a8d990db5df738d3059400:-868325111,6fba5c4d3068d9901057cb732ba956eb:-1624575725,d0c97764d5a4199085f7c1594c2b6249:2139209043,9889372456a419908841b7126de20ad5:-1213001513,50647caa67401550ab7bb06f633c7523:-1355525915,3c63f0669e4015504554666707d5ed32:1623186415,c68270ae820015503c89628c7afd29b0:897071860,fa61f0e62700155092e48455a1e4640a:1196209689,ed4b2b8a80cc19107257c98d7bdc013b:171346791,f7e447f9d463415043480cc714416aa7:1441020045,c0afb2bd76234150afc9cb86f54876a2:-444647229,3c003e3911af015022f666e130e4f782:833138370,623f22f5a9af0150fd57e0995291dcea:-685032387,a31479bd68670150a3663b09612b27e1:-1353878884,0030a2252ae70950ca8bd7db1284d874:1796936188,c5dfdead3ea70950277e7084d7bab8ba:299132130,b19f5e6d8ba70950fe0e4709eb197ffd:799925474,566fdee95da70950d9f39521e447bf83:-1551789069,93aed6214aa709501bf59c7ed929531e:-1892654059,512d9a293a670950e34b841273e9ab09:1320640237,e4c6162949e309503f29ce750c692b39:-1919873854,45d2de658ba30950b9f28e76a1039563:711093438,e73ea9ad77e3c55032596568e4dfacf7:216824009,46fd2d2deae3c550299635a57876d66b:1041980850,be4dede554e3c550be21832df1741df6:-1422494578,109ce9a132e3c550539b7e9e7bde5aaf:423422293,f09ba9695ea3c550c2f45c230d005807:-809134806,491ba5a51fa3c5506667b91eadb8af08:1912278332,741aede92563c55069ebb6d0b0f1d07f:805169572,865969259d63c5507b20586ecd99dc85:-1866784975,55a8e9ed8d23c550f693df149fcb8354:-1973039057,4c386d2df123c5506b3bfb6c7110da40:477028114,ea1721659323c550855ca13af515f7e4:-1427721640,66b661a1af23c5501f0819a2861bbcf9:1420455129,55d529e960ef85508532f4594ddcad9b:1833704971,8e41e9e9fc6f8550501a4e6a7d6111d9:1270139678,8e1129a9666f855035a0dcbba8e165b8:1205730008,5e2d5521482f85508643297d7e04c6e7:-14038389,c01d5dedc3eb8550d5ab9eea80a6dea6:-114587458,18bc552d8ceb8550a23d8accb712dd4c:-1506646100,e71c59e5a0eb8550ee0ab905d6023043:-2011803410,c21b916db0ab855044c39ba9439cceef:1694323268,fec4b8659d2f4550684671416f54353a:512576670,b284f065dc2f45504b323b99ce67ed83:-1391514650,68343425f02f4550987c6dd03af3d37e:-484295520,f21478e1162f455037442748493054e8:1430799872,2f6d5191216fcd1046dc7e28c172ca50:1972208348,793dd551016fcd104c75379ccae38a5d:1930006652,0afc151d8f2fcd1000c0e6168ab7d269:-627203832,9e8cdd593c2fcd103bd7ffa3bcfae694:-955009140,496c5d59b42fcd1041ac2158f875db2d:-954830356,23fbd915042fcd10f4bb93296d76babb:-26322431,60cb95d18f2fcd10b0e2077fae3c7030:-967791131,1e8bd151a62fcd1068494610f475a695:-774726171,4a2bd15d63ebcd109a0afa04b1021875:1140234725,a3ead1d9b9ebcd10aeaa86f7c2682fa1:1310108133,5aba5159b1ebcd10908c40e3eb52c17d:-6419275,c36999d983abcd10c46f168b2267508b:-963734216,a9d8d55526abcd10791fdf4ac6ddf7a0:464393149,a2785d1139abcd10a0a1a973aaa0cea9:1749826109,6bc7d519296bcd10bdcf0c7455052cf8:964245047,e07395d910a7cd10fd1e040b8ab1abd9:-825395161,a793dc1527674d101e3fc80ce4d8e751:1197808473,cb9cff7816670510b8697dd836256489:1526426071,81049c366e8a091046ea14c67e32af5a:-1313921452,747733e2098209103e3db1ba06b238ee:-1340300829,087e3222ed06c5101bfbcb0bc0be4562:673036329,9abc362a67c2c510f64ad074be1afcc1:-134513997,8a8b36a29ac2c5102a142c0797b400ad:1189452310,1ee93aeaf982c510cd2eca21e697ef88:-839445720,90d736ee2542c510c4d0a31b98086b80:1344651670,1057322ed242c51044577fb8e9897c23:1321665265,bcb6726a5342c5108657bc29f48136db:-234605550,34b57ae2fa42c5105c1ed99a8b357d47:-1646876914,b94a2ad5cbce89d0cdeab87cc1a540b0:1004980119,62828b8d194209d0dfd20ca9228b1b79:1295603984,2d7283cde84209d0ae699a16d2ffcd41:1214684599,20328b8d7a4209d0bd12797f4ab76771:-1836454097,0fb14f4dfd4209d0212f97977a3c0d07:-252034408,cba13e81288ec5d071ba2b418868d1e1:952035049,d61aae09f60ec5d0c73c29c5fbe26adc:-58745979,dfd96ec5710ec5d07228de92dcb044db:1136059974,19296245070ec5d035f8fd58dc0abcfe:-1045618973,9808ee01b10ec5d061a691cffdeec972:-682803804,4a66a2c9fbcac5d0f1473fcb68488891:2016713008,7ec5624906cac5d013f80c2af571cf4f:-1675566407,2183ea41ebcac5d07d244b8348670b51:-1895603017,d763e64183cac5d0cdf2a44f9bbf8bef:-244028063,6203ea01f6cac5d03c4c1ea208f335e1:862752770,b1c26acd288ac5d0b8e6842214ef6a2c:-1165379730,476d5689f64ac5d0fcc4bb2ad1c247e8:572052589,56e29ec5e386c5d063cf86bd13662b97:1464379126,21c2d2c52486c5d0e89c2aece33f9e69:-1573211344,9f2256459f86c5d05aeb610d4603e0a4:1616911944,9ca6c609f0c2c5d0d2c7ccc2e8ef88ab:1430087510,6d3542c111c2c5d033ce7fc124ffb0a6:-443118710,42a486015bc2c5d05780b74487aa820d:1004116521,cf555541590685d0f5074352d987b4ae:1069244584,4132d58dae8285d05b79705a985ff40a:144898595,9f4f793c604ac1d02db7605cf9c00963:1168169867,510e9eb4787905901cd9f45915d7d5bf:892358574,d50f4ab4a23505908b5da5b8302c45e3:327320360,5e2e8a70e33505908653d4870fefea2f:-710894596,b4de5fee556dcd50f6b7f061e4f98f91:51417462,997a9e2e7b21cd50eac7f13e4184d398:3575507,725a9a2e9d21cd50001139d5b259aea7:897123151,35391ae60421cd50981e4e2606d1fe2c:274178460,5809d6e6a821cd50be8a6aba8642e485:15390786,cd281a26f321cd503776186e37decfe0:1705099792,7173d662e5ed8d508dd2a2c223605a19:650407206,12fc3a5ec2a90d50509d909fa266efd2:-1443960694,6b27721e6f690d5029f396aee5b033d9:192122718,bb17b29a7a690d50562f41386524f56b:1222490108,6b96b29a8a690d5084ae2051ac99791d:-20459093,7826fed662690d507346768e6f973525:-1426401899,8c163e165d690d500a9f31b821d659bd:1230634623,37d4725222690d50f4ee8159826459c3:-422657721,e414329ea1290d50974a2e99652920a2:-1909714243,23a37e9e8a290d507fd1400001aa199b:1832368451,0992761a99290d5074e8e7693c0dd1d6:1428122451,bd5f6e126c290d504b9eaa690d1a3026:-1697549678,01eeae127c290d50ffa92c6ac607fd13:-2224341,f23ee69e7ce50d500ab82c7c71fe3f1e:1237469675,a59b9adaede10d503df1310c107528e5:1164097906,e6f739c22b6509501ecfd71db381fb0c:1236212671,a0c779c2ad650950c2c84468d6fe9799:626564716,55777506c66509500e9ece7636d81daf:-1483025748,2337b1c28a6509500fec98624fbb79b7:-1437573434,e417b1c20765095053836346414c62ae:531052604,a1c6f9029b650950501bcf726d3f0b4f:1923579151,8d563d0279650950c46453efce70af31:-179804014,b326fdce5a2509505becd40b5e654fca:552413748,baf5f54e11250950765203e19be9c2e7:1062805725,cdd5b98e3425095004f6c3bc9c9eed6d:1178845940,81a53d8e3725095067d52bd3c11f5d7b:599452068,0a85b98e4b250950e14e60f1b4cd4d63:1806032131,fc1531ca9b250950fb5c3134ac0eed82:544688961,b65c6d82c5e10950d4fac751130da5a4:-237335006,f24b298e6ea10950cb21c0c3048edea7:-704653827,9d09294a78a1095030ef4799f5e7106d:-273923416,df63ed4a236109500f0d30b02abd8c99:2057732022,0b53e18660610950d58f0979ca5d1a71:-1648623312,9160d98af02dc550fb33e45f16ebb918:-1920352119,50de8546c72dc550fbee9474e3be6616:302529155,d6aec906852dc550020d311c26034538:-1416782781,09dd450ec9e9c550b892ab3a2f5a1667:-520268061,495d858aa5e9c550bdf16372b20d676b:-1300100087,c52cc9860be9c5507236c62194db3a07:-1840083109,f99b090610e9c55057b91c58224542f8:1660635382,6e76c1c27f69c550aa23296ebee6a429:201526857,2eb5858ed529c550df697b7f9cbe01a6:-214140842,7830c9ca20a5c550f1123426a88fa12b:989963109,449db4cad665c550713e3e7ad352f05b:-1571991183,1fdc744ae265c550dd8e4b3c306a7b25:-907154959,ab903c8a57a1c550e8d512c06ba9eeb2:1281687608,7e10b80aa2a1c550e8e58adb43e73459:-475713308,ebce6cc2cda1c550a356b656bfef66a4:478229255,93ad2c8a8f61c550b97ab60a4ef6ed3f:1917194654,f77d6c8aa061c550288ab082ce3f6bc1:1926015463,fa2d6c8a1c61c550471effe1fe7283b9:1374930994,45bc644a9461c5501f0d5364f3dd2f52:-1015321345,3c6c680a1761c550712fa2162440ae0e:504911835,c6ebc84e14a985508590b47e61720678:823626605,14bb4c0ee6a98550c64c9d596f4ae0a1:-321072049,2f8a8c0af7a985509e62a014efab7e1a:1153381233,cd4a48c6f4a985501dc4769b3546d4d4:-1481194449,440a4c86e9a9855057fc8f539d4b9a3d:-1939115232,f5b9c84632a985504d6141f97dff33df:837545041,0d894846b7a9855035a79ab4209ec070:1727000240,75690806dca98550ef2c28eadd18cbe0:1367820326,e5b88842b2a98550e4260882aaafdbd1:609382079,6f980842e5a98550c7852b11dc06c6ff:1348108735,95a74c8aa569855008d09fcd045365cc:-1219297007,0fd6800a696985502271252d7630e439:-1738553622,fe56cc466d698550f2da5f2c3f693c6f:441383345,a0f50482216985509c835fd7ee206ee2:-1282544592,1a43088a33298550551a967b815ae90a:413940340,1033cc4afa298550f93258a99fd518f2:-342537489,2f1d3f7947a585502b7d68a8f2193a15:-1923813313,ce8cfbb557a58550a8019e6718384dd0:-1978540313,2ba4b7b91ee185500d3c9d31d5da0124:-494230920,b7d37b797ae18550a820590cecae3809:-1344001766,db337fb5bae185504e4f917614bb522a:134100154,a8a605b11f65c150e1e233caeedd91e8:-376382766,103505b56225c150df59b22ba9fcc506:1552778458,bed4c175e225c150784f9f7ff2d84c2e:1602576211,5ab40dbd55a1c1507ff6570f864d00a1:-1201744383,83b3c5f5cf61c150b0a1132c4a557ff3:-1612016897,6be281f97fa1c15099be57b426da9913:1406821717,e8b2c979c661c1508387557e384ce707:773391668,4c92cd3d74a1c1509cc5cd2407b62d0e:192111891,336241352961c150d77c1ba2d2f72463:1481232394,c23249f53261c15051f9d6874b14988c:949546753,cd61417da161c1508fdd2354567d1ba0:-1650549283,ee31417d2a61c150b75dddb159da8a99:-627177350,86010db93f61c1507669817d955b9155:950712947,fbe0c1754061c15049fd2342be98e50f:339421280,b4c0c5f5d461c1505b055b7b91395f64:1356981054,d37045356e21c1505227cc944c799094:861381342,6c7f3cfd2aed8150f23506d04d8cc4bc:-2050743637,a56ff479d9ed8150d43f2e4a49f80341:-483917316,f40f3839e7ad815094e4a434ecb0bf68:-2050743637,d4def47913ed81507524a0cd0d30f055:1129181128,c7aef47995ed81505de0c7930116e86e:-1918247373,ff2db871a7e98150a5ba1b87461abbc6:-1529487405,aaccf8b1bdad815021e0b7320c7b02c3:-1112768909,067c74bdff6d815026b7a815d50d873a:-336927233,b56cf4b5f56981509212c0e74b2cab15:297315647,b10ab4bdcce981502a2aa3ac2edbc7da:-1265931990,5d77f8f56c6981500e19fd65b7120b2e:-1871319857,b6573cf1746981507621f3e2aa10df2f:-28963109,33373cf1f0698150f504e3f7c6a8bd29:93550267,5a077c3908298150228caf9100afb9ea:-1593896438,3066b4316ce581502f8778062877e644:1723440271,8cf5f0f1e2298150c1552b004d3325d6:1002839402,0995f0f153298150d30dde4aed16d8d0:6423576,10ac779ddd6dc5104451858427c96068:-1991274445,a15cfb19ce6dc510238ae16851bfa5bd:-1634542600,ba4cf759396dc5104fb4999f65275226:949214375,2eeb3799256dc510739ca2dfd28583b0:-449095879,f57bb3d94c2dc51061a88a832aaa0a53:856727915,00f7bf99bee9c5108ad977fb24fa9a5b:1968915704,cab7bfd118e9c51057e4620e8aea17b6:-1094999987,7847f79525e9c510402cd9828561f304:1554854637,06373395e7e9c5106943de785fb17b7f:-1184424466,eed6f79192e9c510587ff1061ea6a4d1:1873801242,85c6bf11e4e9c510ad784ba153b42806:-983113189,5696b7ddfda9c51041a07a5a08f7143b:-1331071813,6f063b990ea9c510678eaf5706ca6043:-1516268065,7cf577d1cda9c510590da104c47bb71b:-1810542401,65c5339184a9c51003207bbf9de8a2c2:-716392375,1065ff9107a9c51067ab679aa5a159dc:1037434582,96c4331d4669c510b5da2d7b9bd08e41:166511899,ec84ff599569c510d5f0439986256eb3:1020712552,34cb6f598265c51094a5701d767ecf02:-992310219,94da6f9d2d25c510bbbeff7925d40269:778286172,247a6f9d6f25c5109337cbaa5d438d61:1018245805,9a4a231d0a25c510c790a5d8e9ab56cc:-1073170387,17c923953b25c510ff3b360c7159c973:1294119981,2a996bd5f525c51046895e50e9c3abb3:1449376160,1879a39925e1c5108af32abedbde8199:704688560,f9492bdd71e1c51094a0c95fd95c27bf:-1269915144,56f82391e925c510b138b31c24645ab0:-2027719440,e4a8af9903e1c510231d73d9f5dcc9df:-1572016033,ca08679912e1c510bb39e4504145a3f3:-996230712,a3b76bd56de1c510ff0dc36c0388bb4f:-1036862008,4737a7d167e1c51075e71b3805dc605a:-313211026,afa6679d88a1c5108688d96703a3517b:-868683728,be566b998561c51051a9d382464c76a6:817556336,9809aeb246958d9079daa62df168bc65:-1353511478,c0d5a23ae9558d900b00f37c91ff6e0a:-331382060,a2d4eeb25f558d90fe16a0bac5c35de3:716647998,9004267ed0158d904ef6f43035862800:-1144791343,f7c3a23afa158d90de53beb2a15b923a:-1352607465,ddf26a7645158d904bab5c58d8f3d9d9:-897127998,5ab226f6e4158d905ca56549d5ca5cda:1698385099,8f22263606158d9021a3591de26eb8ba:-420089978,23a126c2b65d8d5009be6a3ab282f60a:1942371696,ea529ac68f598d50f8d6a5a67de95d68:6767463,32bf8e0e64198d50c603dae6c3afdc29:-853607940,b39779795f1189501cc2a8b97110016d:1243983550,8fb0f1b9ef1d495084480d09f6df649d:351719903,a9a999318d51495063308f9de422f82f:626088821,879009fdd755095089ee624050ea8730:270502334,0deef431775509508fd1704b1eca5428:-694906818,c428fc3d0a510950dc9b8d832974da2c:1987807431,e9b02c35d555c5501869de4374bdabff:1218764968,5f5c18351fd1c550862b47243ef620d3:1957420335</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Tax Legis">d10c9c8f1b704dd44a422021f54bcbe7</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_x_mdbda_tax_legis_object_subject_matter</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update&gt;&lt;sys_dictionary action="INSERT_OR_UPDATE" element="subject_matter" table="x_mdbda_tax_legis_object"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;attributes/&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label&gt;Object&lt;/column_label&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;subject_matter&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;formula/&gt;&lt;function_definition/&gt;&lt;function_field&gt;false&lt;/function_field&gt;&lt;internal_type display_value="Reference"&gt;reference&lt;/internal_type&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;200&lt;/max_length&gt;&lt;name&gt;x_mdbda_tax_legis_object&lt;/name&gt;&lt;next_element/&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference display_value="" name="x_mdbda_tax_legis_cadastro_de_responsaveis_do_objeto"&gt;x_mdbda_tax_legis_cadastro_de_responsaveis_do_objeto&lt;/reference&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual&gt;javascript: new x_mdbda_tax_legis.TaxLegisUtils().returnObjects(current.assignment_group.toString());&lt;/reference_qual&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_dictionary&lt;/sys_class_name&gt;&lt;sys_created_by&gt;luiz.almeida@aoop.com.br&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2022-05-09 19:38:36&lt;/sys_created_on&gt;&lt;sys_id&gt;191bd3ee1b9f45904a422021f54bcb2b&lt;/sys_id&gt;&lt;sys_name&gt;Object&lt;/sys_name&gt;&lt;sys_package display_value="Tax Legis" source="x_mdbda_tax_legis"&gt;d10c9c8f1b704dd44a422021f54bcbe7&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Tax Legis"&gt;d10c9c8f1b704dd44a422021f54bcbe7&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_dictionary_x_mdbda_tax_legis_object_subject_matter&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;gabriel.diogo@aoop.com.br&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-04-17 17:49:26&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;advanced&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;virtual_type&gt;script&lt;/virtual_type&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_dictionary&gt;&lt;/record_update&gt;</payload>
+<payload_hash>1428929283</payload_hash>
+<remote_update_set display_value="Aoop: STRY0238808 - [LEG] Alteração do objeto nas tarefas (API)">2f037f831ba5461068eb0fe1f54bcb1d</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-04-18 19:25:33</sys_created_on>
+<sys_id>e3037f831ba5461068eb0fe1f54bcb1e</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18eed2d82750000001</sys_recorded_at>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-04-18 19:25:33</sys_updated_on>
+<table>x_mdbda_tax_legis_object</table>
+<target_name>Objeto.Object</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid>6973d27e7ded861023a8f9a7c7b5cb5c</update_guid>
+<update_guid_history>6973d27e7ded861023a8f9a7c7b5cb5c:1428929283,0efccaba68ad86106f2db42b4461ea89:1187758652,485b8af679ad8610d7e658a075dd9170:-433048977,da7902b210ad8610959427c13dfa98b3:-639107321,e195ca3a0d6d861048f74e011550dcdb:-1348654824,382965faf42986107addb767ff2ea498:-124407759,1bddbb5a6bedc210ac463299d3cf6f81:-484374125,a4e77979a6a7015011879b3921008be6:-1818509729,ac5ddfa67f1385903f38c01f3681b3a3:2042264414,184d93a6f91385903d69275d1ed5140f:1479353502</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>

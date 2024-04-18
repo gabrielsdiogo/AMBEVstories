@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?><unload unload_date="2024-04-18 19:25:17">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Tax Legis">d10c9c8f1b704dd44a422021f54bcbe7</application>
+<application_name>Tax Legis</application_name>
+<application_scope>x_mdbda_tax_legis</application_scope>
+<application_version>1.0.4</application_version>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description/>
+<inserted/>
+<name>Aoop: STRY0238808 - [LEG] Alteração do objeto nas tarefas- FixScript</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>9edcf7061b2982104a422021f54bcb9f</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-04-18 19:25:16</sys_created_on>
+<sys_id>5ff27f431ba5461068eb0fe1f54bcb80</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-04-18 19:25:16</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Tax Legis">d10c9c8f1b704dd44a422021f54bcbe7</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_fix_54c578621b2906104a422021f54bcb28</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_fix"&gt;&lt;sys_script_fix action="INSERT_OR_UPDATE"&gt;&lt;before&gt;false&lt;/before&gt;&lt;description/&gt;&lt;name&gt;Aoop: STRY0238808 - Atualização legado &lt;/name&gt;&lt;record_for_rollback&gt;true&lt;/record_for_rollback&gt;&lt;script&gt;&lt;![CDATA[var dataPolicys = gs.getProperty('x_mdbda_tax_legis.tax.fix.script.data.policys');
+var cadObjects = gs.getProperty('x_mdbda_tax_legis.tax.fix.script.objects').split(',');
+
+var grSDP2 = new GlideRecord('sys_data_policy2'); // deactivated data policy for update records
+grSDP2.addEncodedQuery('model_table=x_mdbda_tax_legis_object^sys_idIN' + dataPolicys);
+grSDP2.query();
+while (grSDP2.next()) {
+    grSDP2.setValue('active', false);
+    grSDP2.update();
+}
+
+var grObj = new GlideRecord('x_mdbda_tax_legis_object');// OBJ0007401 update object field
+grObj.addEncodedQuery('numberINOBJ0003342,OBJ0003017,OBJ0002956,OBJ0002884,OBJ0002878,OBJ0007401,OBJ0002195,OBJ0001001,OBJ0001002,OBJ0001003');
+grObj.query();
+while(grObj.next()){
+    grObj.setWorkflow(false);
+
+    switch(grObj.getValue('number').toString()){
+        case 'OBJ0003342':
+        grObj.setValue('subject_matter', cadObjects[0]);
+        grObj.update();
+        break;
+
+        case 'OBJ0003017':
+        grObj.setValue('subject_matter', cadObjects[0]);
+        grObj.update();
+        break;
+
+        case 'OBJ0002956':
+        grObj.setValue('subject_matter', cadObjects[0]);
+        grObj.update();
+        break;
+
+        case 'OBJ0002884':
+        grObj.setValue('subject_matter', cadObjects[0]);
+        grObj.update();
+        break;
+
+        case 'OBJ0002878':
+        grObj.setValue('subject_matter', cadObjects[0]);
+        grObj.update();
+        break;
+
+        case 'OBJ0007401':
+        grObj.setValue('subject_matter', cadObjects[1]);
+        grObj.update();
+        break;
+
+        case 'OBJ0002195':
+        grObj.setValue('subject_matter', cadObjects[2]);
+        grObj.update();
+        break;
+
+
+
+
+
+        case 'OBJ0001001':
+        grObj.setValue('subject_matter', cadObjects[3]);
+        grObj.update();
+        break;
+
+        case 'OBJ0001002':
+        grObj.setValue('subject_matter', cadObjects[4]);
+        grObj.update();
+        break;
+
+        case 'OBJ0001003':
+        grObj.setValue('subject_matter', cadObjects[4]);
+        grObj.update();
+        break;
+    }
+    
+}
+
+var grObjAll = new GlideRecord('x_mdbda_tax_legis_object');
+grObjAll.addEncodedQuery('assignment_groupISNOTEMPTY^number!=OBJ0003342^number!=OBJ0003017^number!=OBJ0002956^number!=OBJ0002884^number!=OBJ0002878^number!=OBJ0007401^number!=OBJ0002195^number!=OBJ0001001^number!=OBJ0001002^number!=OBJ0001003');
+grObjAll.query();
+while(grObjAll.next()){
+    var grXMTLCDRDO = new GlideRecord('x_mdbda_tax_legis_cadastro_de_responsaveis_do_objeto');
+    grXMTLCDRDO.addQuery('grupo_solucionador', grObjAll.getValue('responsible_group'));
+    grXMTLCDRDO.addQuery('objeto', grObjAll.getValue('subject_matter'));
+    grXMTLCDRDO.query();
+    if(grXMTLCDRDO.next()){
+        grObjAll.setWorkflow(false);
+        grObjAll.setValue('subject_matter', grXMTLCDRDO.getValue('sys_id'));
+        grObjAll.update();
+    }else{
+        grXMTLCDRDO.setValue('objeto', grObjAll.getValue('subject_matter'));
+        grXMTLCDRDO.setValue('grupo_solucionador', grObjAll.getValue('responsible_group'));
+        var result = grXMTLCDRDO.insert();
+        grObjAll.setWorkflow(false);
+        grObjAll.setValue('subject_matter', result);
+        grObjAll.update();
+    }
+}
+
+
+var grSDP3 = new GlideRecord('sys_data_policy2'); // restore data policy for records
+grSDP3.addEncodedQuery('model_table=x_mdbda_tax_legis_object^sys_idIN' + dataPolicys);
+grSDP3.query();
+while (grSDP3.next()) {
+    grSDP3.setValue('active', true);
+    grSDP3.update();
+}
+
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_fix&lt;/sys_class_name&gt;&lt;sys_created_by&gt;gabriel.diogo@aoop.com.br&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-04-16 16:22:29&lt;/sys_created_on&gt;&lt;sys_id&gt;54c578621b2906104a422021f54bcb28&lt;/sys_id&gt;&lt;sys_mod_count&gt;7&lt;/sys_mod_count&gt;&lt;sys_name&gt;Aoop: STRY0238808 - Atualização legado &lt;/sys_name&gt;&lt;sys_package display_value="Tax Legis" source="x_mdbda_tax_legis"&gt;d10c9c8f1b704dd44a422021f54bcbe7&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Tax Legis"&gt;d10c9c8f1b704dd44a422021f54bcbe7&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_fix_54c578621b2906104a422021f54bcb28&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;gabriel.diogo@aoop.com.br&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-04-18 16:31:32&lt;/sys_updated_on&gt;&lt;unloadable&gt;false&lt;/unloadable&gt;&lt;/sys_script_fix&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-1906618955</payload_hash>
+<remote_update_set display_value="Aoop: STRY0238808 - [LEG] Alteração do objeto nas tarefas- FixScript">5ff27f431ba5461068eb0fe1f54bcb80</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-04-18 19:25:16</sys_created_on>
+<sys_id>13f27f431ba5461068eb0fe1f54bcb82</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18ef20e166c0000001</sys_recorded_at>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-04-18 19:25:16</sys_updated_on>
+<table/>
+<target_name>Aoop: STRY0238808 - Atualização legado </target_name>
+<type>Fix Script</type>
+<update_domain>global</update_domain>
+<update_guid>439b4fc719614610a38499b3b52bdc69</update_guid>
+<update_guid_history>439b4fc719614610a38499b3b52bdc69:-1906618955,e63b47c7a561461040b257c380d415c1:-1906618955,c6c71ec7612d0610fb9ec91ecd801808:1160916820,d905ad32ef298610581b4bac912b482f:-1480172680,17d539e2a8e54610f18fb4c413e902a0:1828089234,76e37d6e8aa546108da888c58a549a4c:-1660201309,45c2b52e0ca546102b77d8f6d268dc3d:1828089234,c7ed81a2f42d0610477529036caa7183:-667828662,4af5786280290610f1fe54eb330fc332:-2070847514</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Tax Legis">d10c9c8f1b704dd44a422021f54bcbe7</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_4dd59e071b2d061068eb0fe1f54bcbd3</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties"><sys_properties action="INSERT_OR_UPDATE"><choices/><description>Used in Aoop: STRY0238808 - Atualização legado </description><ignore_cache>true</ignore_cache><is_private>false</is_private><name>x_mdbda_tax_legis.tax.fix.script.objects</name><read_roles/><suffix>tax.fix.script.objects</suffix><sys_class_name>sys_properties</sys_class_name><sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by><sys_created_on>2024-04-18 12:40:51</sys_created_on><sys_id>4dd59e071b2d061068eb0fe1f54bcbd3</sys_id><sys_mod_count>4</sys_mod_count><sys_name>x_mdbda_tax_legis.tax.fix.script.objects</sys_name><sys_package display_value="Tax Legis" source="x_mdbda_tax_legis">d10c9c8f1b704dd44a422021f54bcbe7</sys_package><sys_policy/><sys_scope display_value="Tax Legis">d10c9c8f1b704dd44a422021f54bcbe7</sys_scope><sys_update_name>sys_properties_4dd59e071b2d061068eb0fe1f54bcbd3</sys_update_name><sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by><sys_updated_on>2024-04-18 17:19:01</sys_updated_on><type>string</type><value>23606d3b1be2651068eb0fe1f54bcb28,e9b6d23d1bb8f510fb05a687fa4bcb9c,e3606d3b1be2651068eb0fe1f54bcb27,9f602d3b1be2651068eb0fe1f54bcbf9,67606d3b1be2651068eb0fe1f54bcb35</value><write_roles/></sys_properties><sys_translated_text action="delete_multiple" query="documentkey=4dd59e071b2d061068eb0fe1f54bcbd3"/></record_update>]]></payload>
+<payload_hash>4491919</payload_hash>
+<remote_update_set display_value="Aoop: STRY0238808 - [LEG] Alteração do objeto nas tarefas- FixScript">5ff27f431ba5461068eb0fe1f54bcb80</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-04-18 19:25:16</sys_created_on>
+<sys_id>17f27f431ba5461068eb0fe1f54bcb81</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18ef238f5850000001</sys_recorded_at>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-04-18 19:25:16</sys_updated_on>
+<table/>
+<target_name>x_mdbda_tax_legis.tax.fix.script.objects</target_name>
+<type>System Property</type>
+<update_domain>global</update_domain>
+<update_guid>8156178bfea1461087785ea6ce1815b8</update_guid>
+<update_guid_history>8156178bfea1461087785ea6ce1815b8:4491919,02165b4b59a14610154fab8c11c9bf8a:4491919,387a87872e614610788923cdb8e36f9b:-245524005,b06a07874161461021d77d951d5235d6:-824765843,274a078768614610d6f76b508ec25860:-1288655393,d3661647802d06100c0cd33d34bc1c76:1311969741</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Tax Legis">d10c9c8f1b704dd44a422021f54bcbe7</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_14f3d6831b2d061068eb0fe1f54bcb98</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties"><sys_properties action="INSERT_OR_UPDATE"><choices/><description>Used in Aoop: STRY0238808 - Atualização legado </description><ignore_cache>true</ignore_cache><is_private>false</is_private><name>x_mdbda_tax_legis.tax.fix.script.data.policys</name><read_roles/><suffix>tax.fix.script.data.policys</suffix><sys_class_name>sys_properties</sys_class_name><sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by><sys_created_on>2024-04-18 12:31:37</sys_created_on><sys_id>14f3d6831b2d061068eb0fe1f54bcb98</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_mdbda_tax_legis.tax.fix.script.data.policys</sys_name><sys_package display_value="Tax Legis" source="x_mdbda_tax_legis">d10c9c8f1b704dd44a422021f54bcbe7</sys_package><sys_policy/><sys_scope display_value="Tax Legis">d10c9c8f1b704dd44a422021f54bcbe7</sys_scope><sys_update_name>sys_properties_14f3d6831b2d061068eb0fe1f54bcb98</sys_update_name><sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by><sys_updated_on>2024-04-18 12:31:37</sys_updated_on><type>string</type><value>59e85b271bd6e51068eb0fe1f54bcb95,98aef5131b9f0d544a422021f54bcb6e</value><write_roles/></sys_properties><sys_translated_text action="delete_multiple" query="documentkey=14f3d6831b2d061068eb0fe1f54bcb98"/></record_update>]]></payload>
+<payload_hash>-66321800</payload_hash>
+<remote_update_set display_value="Aoop: STRY0238808 - [LEG] Alteração do objeto nas tarefas- FixScript">5ff27f431ba5461068eb0fe1f54bcb80</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-04-18 19:25:16</sys_created_on>
+<sys_id>53f27f431ba5461068eb0fe1f54bcb81</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18ef130ec520000001</sys_recorded_at>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-04-18 19:25:16</sys_updated_on>
+<table/>
+<target_name>x_mdbda_tax_legis.tax.fix.script.data.policys</target_name>
+<type>System Property</type>
+<update_domain>global</update_domain>
+<update_guid>d8541e83f22d0610f97b672835e2cf57</update_guid>
+<update_guid_history>d8541e83f22d0610f97b672835e2cf57:-66321800</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Tax Legis">d10c9c8f1b704dd44a422021f54bcbe7</application>
+<category>customer</category>
+<comments/>
+<name>sys_scope_privilege_f3f2606a1b2506104a422021f54bcbdc</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege"><sys_scope_privilege action="INSERT_OR_UPDATE"><operation>execute</operation><source_scope display_value="Tax Legis">d10c9c8f1b704dd44a422021f54bcbe7</source_scope><status>allowed</status><sys_class_name>sys_scope_privilege</sys_class_name><sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by><sys_created_on>2024-04-16 14:59:35</sys_created_on><sys_id>f3f2606a1b2506104a422021f54bcbdc</sys_id><sys_mod_count>0</sys_mod_count><sys_name>GlideRecord.updateMultiple</sys_name><sys_package display_value="Tax Legis" source="x_mdbda_tax_legis">d10c9c8f1b704dd44a422021f54bcbe7</sys_package><sys_policy/><sys_scope display_value="Tax Legis">d10c9c8f1b704dd44a422021f54bcbe7</sys_scope><sys_update_name>sys_scope_privilege_f3f2606a1b2506104a422021f54bcbdc</sys_update_name><sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by><sys_updated_on>2024-04-16 14:59:35</sys_updated_on><target_name>GlideRecord.updateMultiple</target_name><target_scope display_value="Global">global</target_scope><target_type>scriptable</target_type></sys_scope_privilege></record_update>]]></payload>
+<payload_hash>-1475358935</payload_hash>
+<remote_update_set display_value="Aoop: STRY0238808 - [LEG] Alteração do objeto nas tarefas- FixScript">5ff27f431ba5461068eb0fe1f54bcb80</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-04-18 19:25:16</sys_created_on>
+<sys_id>5ff27f431ba5461068eb0fe1f54bcb81</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18ee76ba4a90000001</sys_recorded_at>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-04-18 19:25:16</sys_updated_on>
+<table/>
+<target_name>GlideRecord.updateMultiple</target_name>
+<type>Cross scope privilege</type>
+<update_domain>global</update_domain>
+<update_guid>bbf2606a98250610b0ffe2cca04126de</update_guid>
+<update_guid_history>bbf2606a98250610b0ffe2cca04126de:-1475358935</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Tax Legis">d10c9c8f1b704dd44a422021f54bcbe7</application>
+<category>customer</category>
+<comments/>
+<name>sys_scope_privilege_e62011e61b2d06104a422021f54bcbc7</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege"><sys_scope_privilege action="INSERT_OR_UPDATE"><operation>execute</operation><source_scope display_value="Tax Legis">d10c9c8f1b704dd44a422021f54bcbe7</source_scope><status>allowed</status><sys_class_name>sys_scope_privilege</sys_class_name><sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by><sys_created_on>2024-04-16 18:16:55</sys_created_on><sys_id>e62011e61b2d06104a422021f54bcbc7</sys_id><sys_mod_count>0</sys_mod_count><sys_name>GlideRecord.deleteRecord</sys_name><sys_package display_value="Tax Legis" source="x_mdbda_tax_legis">d10c9c8f1b704dd44a422021f54bcbe7</sys_package><sys_policy/><sys_scope display_value="Tax Legis">d10c9c8f1b704dd44a422021f54bcbe7</sys_scope><sys_update_name>sys_scope_privilege_e62011e61b2d06104a422021f54bcbc7</sys_update_name><sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by><sys_updated_on>2024-04-16 18:16:55</sys_updated_on><target_name>GlideRecord.deleteRecord</target_name><target_scope display_value="Global">global</target_scope><target_type>scriptable</target_type></sys_scope_privilege></record_update>]]></payload>
+<payload_hash>-1731776669</payload_hash>
+<remote_update_set display_value="Aoop: STRY0238808 - [LEG] Alteração do objeto nas tarefas- FixScript">5ff27f431ba5461068eb0fe1f54bcb80</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-04-18 19:25:16</sys_created_on>
+<sys_id>9bf27f431ba5461068eb0fe1f54bcb81</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18ee82051030000001</sys_recorded_at>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-04-18 19:25:16</sys_updated_on>
+<table/>
+<target_name>GlideRecord.deleteRecord</target_name>
+<type>Cross scope privilege</type>
+<update_domain>global</update_domain>
+<update_guid>a22011e6e42d06104753962f399b0bc9</update_guid>
+<update_guid_history>a22011e6e42d06104753962f399b0bc9:-1731776669</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Tax Legis">d10c9c8f1b704dd44a422021f54bcbe7</application>
+<category>customer</category>
+<comments/>
+<name>sys_scope_privilege_9d1464aa1b2506104a422021f54bcbfb</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege"><sys_scope_privilege action="INSERT_OR_UPDATE"><operation>read</operation><source_scope display_value="Tax Legis">d10c9c8f1b704dd44a422021f54bcbe7</source_scope><status>allowed</status><sys_class_name>sys_scope_privilege</sys_class_name><sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by><sys_created_on>2024-04-16 15:04:20</sys_created_on><sys_id>9d1464aa1b2506104a422021f54bcbfb</sys_id><sys_mod_count>0</sys_mod_count><sys_name>sys_data_policy2</sys_name><sys_package display_value="Tax Legis" source="x_mdbda_tax_legis">d10c9c8f1b704dd44a422021f54bcbe7</sys_package><sys_policy/><sys_scope display_value="Tax Legis">d10c9c8f1b704dd44a422021f54bcbe7</sys_scope><sys_update_name>sys_scope_privilege_9d1464aa1b2506104a422021f54bcbfb</sys_update_name><sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by><sys_updated_on>2024-04-16 15:04:20</sys_updated_on><target_name>sys_data_policy2</target_name><target_scope display_value="Global">global</target_scope><target_type>sys_db_object</target_type></sys_scope_privilege></record_update>]]></payload>
+<payload_hash>1475975265</payload_hash>
+<remote_update_set display_value="Aoop: STRY0238808 - [LEG] Alteração do objeto nas tarefas- FixScript">5ff27f431ba5461068eb0fe1f54bcb80</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-04-18 19:25:16</sys_created_on>
+<sys_id>d7f27f431ba5461068eb0fe1f54bcb81</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18ee76ffde90000001</sys_recorded_at>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-04-18 19:25:16</sys_updated_on>
+<table/>
+<target_name>sys_data_policy2</target_name>
+<type>Cross scope privilege</type>
+<update_domain>global</update_domain>
+<update_guid>591464aa4e250610c755e2aaff2a01fd</update_guid>
+<update_guid_history>591464aa4e250610c755e2aaff2a01fd:1475975265</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>
