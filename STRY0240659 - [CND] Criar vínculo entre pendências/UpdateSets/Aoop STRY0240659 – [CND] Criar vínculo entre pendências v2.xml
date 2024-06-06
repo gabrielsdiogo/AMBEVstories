@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><unload unload_date="2024-06-06 14:37:19">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Tax CND">96be4ee91b30b11068eb0fe1f54bcbaa</application>
+<application_name>Tax CND</application_name>
+<application_scope>x_mdbda_tax_cnd</application_scope>
+<application_version>1.0.0</application_version>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description/>
+<inserted/>
+<name>Aoop: STRY0240659 – [CND] Criar vínculo entre pendências v2</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>bafbf67a1b66069068eb0fe1f54bcb5d</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-06-06 14:37:18</sys_created_on>
+<sys_id>f2f6473e1be6069068eb0fe1f54bcb46</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-06-06 14:37:18</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Tax CND">96be4ee91b30b11068eb0fe1f54bcbaa</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_client_469cfeba1b66069068eb0fe1f54bcbda</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;parent&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Aoop: CND vincular modal confirmation &lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    if (newValue != '') {
+        if (newValue == g_form.getUniqueValue()) {
+            g_form.clearValue('parent');
+			g_form.showFieldMsg('parent','Não é possível vincular a pendência com ela mesma. Por favor, selecione outra pendência.','info');
+            g_form.setMandatory('parent', true);
+        } else {
+            var gm = new GlideModal("glide_modal_confirm", false, 600);
+            gm.setTitle("Aviso!");
+            gm.setPreference("body", "Confirma a criação do vínculo? Os campos diferentes da pendência selecionada serão alterados.");
+            gm.setPreference("onPromptComplete", function() {
+                var ga = new GlideAjax('x_mdbda_tax_cnd.CNDUtils');
+                ga.addParam('sysparm_name', 'criaVinculoPendencia');
+                ga.addParam('sysparm_parent', g_form.getValue('parent'));
+                ga.addParam('sysparm_pendencia', g_form.getUniqueValue());
+                ga.getXMLAnswer(function(answer) {
+                    var response = answer;
+                    var x = setInterval(function() {
+                        g_form.setValue('work_notes', 'Pendência vinculada à ' + response);
+                        g_form.save();
+
+                    }, 1000);
+                });
+
+            });
+            gm.setPreference("onPromptCancel", function() {
+                g_form.clearValue('parent');
+                g_form.setMandatory('parent', false);
+				g_form.setReadOnly('parent', true);
+            });
+            gm.render();
+        }
+    }
+
+    //Type appropriate comment here, and begin script below
+
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;gabriel.diogo@aoop.com.br&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-06 13:56:29&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;469cfeba1b66069068eb0fe1f54bcbda&lt;/sys_id&gt;&lt;sys_mod_count&gt;6&lt;/sys_mod_count&gt;&lt;sys_name&gt;Aoop: CND vincular modal confirmation &lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Tax CND" source="x_mdbda_tax_cnd"&gt;96be4ee91b30b11068eb0fe1f54bcbaa&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Tax CND"&gt;96be4ee91b30b11068eb0fe1f54bcbaa&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_469cfeba1b66069068eb0fe1f54bcbda&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;gabriel.diogo@aoop.com.br&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-06 14:32:50&lt;/sys_updated_on&gt;&lt;table&gt;x_mdbda_tax_cnd_issue&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-2119953147</payload_hash>
+<remote_update_set display_value="Aoop: STRY0240659 – [CND] Criar vínculo entre pendências v2">f2f6473e1be6069068eb0fe1f54bcb46</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-06-06 14:37:18</sys_created_on>
+<sys_id>f6f6473e1be6069068eb0fe1f54bcb46</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18fedf77ab30000001</sys_recorded_at>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-06-06 14:37:18</sys_updated_on>
+<table>x_mdbda_tax_cnd_issue</table>
+<target_name>Aoop: CND vincular modal confirmation </target_name>
+<type>Client Script</type>
+<update_domain>global</update_domain>
+<update_guid>95f58b7afbe606900e558f71f480ecc2</update_guid>
+<update_guid_history>95f58b7afbe606900e558f71f480ecc2:-2119953147,06b18fbea5a6069013836d86f5e6cdb5:1276911142,8f6ff6ba18a606906b396d313fe05814:1105297666,463ffe3aeaa60690c16ab8dd80aebf23:2074810760,f40fb63a4da60690c1ea195e441423a8:-1675120808,8ece7ab24ca60690d78fe108b7bab5d2:1308191548,78adfefa086606900d0d27dca5f53c00:-2143504141</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Tax CND">96be4ee91b30b11068eb0fe1f54bcbaa</application>
+<category>customer</category>
+<comments/>
+<name>sys_ui_action_7a10a4561b6a06504a422021f54bcb86</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_ui_action"&gt;&lt;sys_ui_action action="INSERT_OR_UPDATE"&gt;&lt;action_name&gt;sys_vincular&lt;/action_name&gt;&lt;active&gt;true&lt;/active&gt;&lt;client&gt;true&lt;/client&gt;&lt;client_script_v2&gt;&lt;![CDATA[function onClick(g_form) {
+
+}]]&gt;&lt;/client_script_v2&gt;&lt;comments/&gt;&lt;condition&gt;current.canWrite() &amp;amp;&amp;amp; current.parent == "" &amp;amp;&amp;amp; new CNDUtils().userHasGroup(gs.getUserID(), 'CND - Geral')&lt;/condition&gt;&lt;form_action&gt;true&lt;/form_action&gt;&lt;form_button&gt;true&lt;/form_button&gt;&lt;form_button_v2&gt;false&lt;/form_button_v2&gt;&lt;form_context_menu&gt;false&lt;/form_context_menu&gt;&lt;form_link&gt;false&lt;/form_link&gt;&lt;form_menu_button_v2&gt;false&lt;/form_menu_button_v2&gt;&lt;form_style/&gt;&lt;format_for_configurable_workspace&gt;false&lt;/format_for_configurable_workspace&gt;&lt;hint/&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;list_action&gt;false&lt;/list_action&gt;&lt;list_banner_button&gt;false&lt;/list_banner_button&gt;&lt;list_button&gt;false&lt;/list_button&gt;&lt;list_choice&gt;false&lt;/list_choice&gt;&lt;list_context_menu&gt;false&lt;/list_context_menu&gt;&lt;list_link&gt;false&lt;/list_link&gt;&lt;list_save_with_form_button&gt;false&lt;/list_save_with_form_button&gt;&lt;list_style/&gt;&lt;messages/&gt;&lt;name&gt;Vincular&lt;/name&gt;&lt;onclick&gt;check()&lt;/onclick&gt;&lt;order&gt;100&lt;/order&gt;&lt;script&gt;&lt;![CDATA[function check(){
+	var parent = g_form.getValue('parent');
+
+	if(parent == ''){
+		g_form.setMandatory('parent', true);
+	}
+}]]&gt;&lt;/script&gt;&lt;show_insert&gt;false&lt;/show_insert&gt;&lt;show_multiple_update&gt;false&lt;/show_multiple_update&gt;&lt;show_query&gt;false&lt;/show_query&gt;&lt;show_update&gt;true&lt;/show_update&gt;&lt;sys_class_name&gt;sys_ui_action&lt;/sys_class_name&gt;&lt;sys_created_by&gt;gabriel.diogo@aoop.com.br&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-04 13:12:03&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;7a10a4561b6a06504a422021f54bcb86&lt;/sys_id&gt;&lt;sys_mod_count&gt;22&lt;/sys_mod_count&gt;&lt;sys_name&gt;Vincular&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Tax CND" source="x_mdbda_tax_cnd"&gt;96be4ee91b30b11068eb0fe1f54bcbaa&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Tax CND"&gt;96be4ee91b30b11068eb0fe1f54bcbaa&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_action_7a10a4561b6a06504a422021f54bcb86&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;gabriel.diogo@aoop.com.br&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-06 13:56:22&lt;/sys_updated_on&gt;&lt;table&gt;x_mdbda_tax_cnd_issue&lt;/table&gt;&lt;ui11_compatible&gt;true&lt;/ui11_compatible&gt;&lt;ui16_compatible&gt;false&lt;/ui16_compatible&gt;&lt;/sys_ui_action&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-1328354745</payload_hash>
+<remote_update_set display_value="Aoop: STRY0240659 – [CND] Criar vínculo entre pendências v2">f2f6473e1be6069068eb0fe1f54bcb46</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-06-06 14:37:18</sys_created_on>
+<sys_id>fef6473e1be6069068eb0fe1f54bcb46</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18fedd61ad60000001</sys_recorded_at>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-06-06 14:37:18</sys_updated_on>
+<table>x_mdbda_tax_cnd_issue</table>
+<target_name>Vincular</target_name>
+<type>UI Action</type>
+<update_domain>global</update_domain>
+<update_guid>d79d3a3e81660690fc542195f445b73c</update_guid>
+<update_guid_history>d79d3a3e81660690fc542195f445b73c:-1328354745,fcabcfea61eec6504c09257a3169ee59:-1113708655,584987a64beec65070277caa5c56fbd4:-1587952357,57a5355e196646505978672ae6f9f382:-1113708655,1b85f91e0a664650439801eba6e232ee:1551068743,79226956f8e246504e6eb5bb55133819:201982447,24e1615603e24650d5791b6bc7f26aea:-1203175026,bd80ad1298e246501733112ffd940933:-602822617,05a31dd2db22465056173399ddfb0627:-2121925099,3c8359d20e224650bd702930f80dd31b:-1241063018,acc1991220224650ccc7e0d8275093a7:622411866,e51119dedbee0650495af39b3ee3e5ee:-690717053,31b0d59ea4ee06507fd990c5f2fad7b2:1925860829,f480559ee9ee06507c43bdaa9c25f7a1:-364618231,a0ffc55e1dee0650ce55af3569b9f212:-428652346,3d9f4d1edcee0650d6b5ce77c5ecb48a:567659107,408f0d1eb8ee06501c57f3058836634b:800179832,8dde785e196e0650f1cc79956ab252b9:1846553835,f89e785e536e0650acde020047556b7d:1549717845,a7b028d65a6a06508d0e80eda37d7dfe:1846553835,5b90ec96dd6a0650e642f0ffe01de7b6:1164813663,3d80e896746a0650917ff389883e881f:-1588677790,2170a496d06a0650715e18ed95200dce:1725115488,de606496246a0650193dc9be3220c3b7:1419910375,ee402c56ad6a0650b87225fc71fed337:2014110407</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>
