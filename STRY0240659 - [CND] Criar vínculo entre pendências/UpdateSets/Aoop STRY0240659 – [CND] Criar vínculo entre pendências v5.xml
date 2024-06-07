@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?><unload unload_date="2024-06-07 20:13:02">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Tax CND">96be4ee91b30b11068eb0fe1f54bcbaa</application>
+<application_name>Tax CND</application_name>
+<application_scope>x_mdbda_tax_cnd</application_scope>
+<application_version>1.0.0</application_version>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description/>
+<inserted/>
+<name>Aoop: STRY0240659 – [CND] Criar vínculo entre pendências v5</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>434e41571b660e504a422021f54bcb14</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-06-07 20:13:02</sys_created_on>
+<sys_id>a26dd95b1be60e504a422021f54bcb08</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-06-07 20:13:02</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Tax CND">96be4ee91b30b11068eb0fe1f54bcbaa</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_include_9f50949a1bb8751068eb0fe1f54bcbd0</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_mdbda_tax_cnd.CNDUtils&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;true&lt;/client_callable&gt;&lt;description/&gt;&lt;name&gt;CNDUtils&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var CNDUtils = Class.create();
+
+CNDUtils.NEW = "1";
+CNDUtils.WORK_IN_PROGRESS = "2";
+
+CNDUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    getRecord: function(tableName, sysID) {
+
+        var table_Name = tableName ? tableName : this.getParameter('sysparm_tableName');
+        var sys_ID = sysID ? sysID : this.getParameter('sysparm_sysID');
+        var record = new GlideRecord(table_Name);
+        record.addQuery('sys_id', sys_ID);
+        record.query();
+
+        if (record.next()) {
+            return record;
+        }
+    },
+
+    tasksResolved: function(sysID) {
+        var sys_id_cnd_issue = this.getParameter('sysparm_sysid_cnd_issue') || sysID;
+        var tasks_concluidas = true;
+
+        var taskGR = new GlideRecord('x_mdbda_tax_cnd_task');
+        taskGR.addEncodedQuery('parent.sys_id=' + sys_id_cnd_issue);
+        taskGR.query();
+
+        while (taskGR.next()) {
+            if (taskGR.getValue('state') != x_mdbda_tax_global.BaseCatalogUtils.CLOSED_COMPLETE) {
+                tasks_concluidas = false;
+            }
+        }
+
+        return tasks_concluidas;
+    },
+
+    getParentId: function(tableName, sysID) {
+        var table_Name = tableName ? tableName : this.getParameter('sysparm_tableName');
+        var sys_ID = sysID ? sysID : this.getParameter('sysparm_sysID');
+
+        var rec = this.getRecord(table_Name, sys_ID);
+        return rec.getValue('parent');
+
+    },
+
+    isChoice: function(tableName, fieldName, choiceValue) {
+        var table_Name = tableName ? tableName : this.getParameter('sysparm_tableName');
+        var field_Name = fieldName ? fieldName : this.getParameter('sysparm_fieldName');
+        var choice_Value = choiceValue ? choiceValue : this.getParameter('sysparm_choiceValue');
+
+        var choiceGR = new GlideRecord('sys_choice');
+        choiceGR.addEncodedQuery('name=' + table_Name + '^element=' + field_Name + '^value=' + choice_Value);
+        choiceGR.setLimit(1);
+        choiceGR.query();
+
+        if (choiceGR.next()) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+
+    getFieldValue: function(tableName, fieldName, recordID) {
+        var table_Name = tableName ? tableName : this.getParameter('sysparm_tableName');
+        var field_Name = fieldName ? fieldName : this.getParameter('sysparm_fieldName');
+        var record_ID = recordID ? recordID : this.getParameter('sysparm_recordID');
+
+        var fieldGR = new GlideRecord(table_Name);
+        fieldGR.get(record_ID);
+
+        return fieldGR.getValue(field_Name);
+    },
+
+    getDiasValidadeDataRenovacao: function(date) {
+        obj = {
+            "dias_vencimento": "",
+            "data_renovacao": ""
+        };
+
+        var validade = date ? date : this.getParameter('sysparm_date');
+
+        //Recebe a data no formato dd/MM/yyyy e converte para GlideDateTime
+        var validade_convert = new GlideDate();
+        validade_convert.setDisplayValue(validade);
+        var validade_date_time = new GlideDateTime(validade_convert + ' 12:00:00');
+
+        //Calcula os dias até o vencimento
+        var today_date = new GlideDate();
+        var today = new GlideDateTime(today_date.toString() + ' 12:00:00');
+
+        var duration = GlideDateTime.subtract(today, validade_date_time);
+
+        obj.dias_vencimento = duration.getDayPart();
+
+        //Calcula a Data limite para solicitar renovação
+        validade_date_time.addDaysLocalTime(-15);
+        var data = validade_date_time.getDate().getByFormat('dd/MM/yyyy');
+        var numero_dia_semana = validade_date_time.getDayOfWeekLocalTime();
+
+        var dia_semana = {
+            "1": "Segunda-feira",
+            "2": "Terça-feira",
+            "3": "Quarta-feira",
+            "4": "Quinta-feira",
+            "5": "Sexta-feira",
+            "6": "Sábado",
+            "7": "Domingo"
+        };
+
+        obj.data_renovacao = data + ' - ' + dia_semana[numero_dia_semana];
+
+        return JSON.stringify(obj);
+    },
+
+    /**SNDOC
+    	@name emailPendenciasDia
+    	@description recebe o objeto current do disparo do evento da notificação, contendo o GlideRecord de um registro da CND que será utilizado como parâmetro para a construção da tabela, sendo utilizada a informação do Grupo.
+    
+    	@param {objeto} [current] - objeto current vindo da notificação
+    
+    	@returns {html} layout html para ser inserido no email script
+    	*/
+    emailPendenciasDia: function(current) {
+        var info = this._buildObjectToNotifCND(current);
+        var layoutHtml = "";
+        var queryGridCND = "";
+        var email_layout = gs.getProperty("x_mdbda_tax_cnd.layout.default.email.cnd"); //layout ambev
+        var messageEmail = "";
+
+        queryGridCND = gs.getProperty("x_mdbda_tax_cnd.layout.grid.email.cnd");
+        messageEmail = "Gostaríamos de informar que novas pendências foram registradas na CND FEDERAL do GRUPO " + current.grupo.name + ". Abaixo você encontrará os detalhes.";
+
+        var grGridEmailCND = new GlideRecord("sys_email_layout");
+        grGridEmailCND.addQuery("name", queryGridCND);
+        grGridEmailCND.query();
+
+        var grLayoutCND = new GlideRecord("sys_email_layout");
+        grLayoutCND.addQuery("name", email_layout); //layout ambev
+        grLayoutCND.query();
+
+        if (grLayoutCND.next() &amp;&amp; grGridEmailCND.next()) {
+            layoutHtml = grLayoutCND.getValue("layout");
+            var htmlTable = "";
+            for (var i = 0; i &lt; info.length; i++) {
+                gridLayout = grGridEmailCND.getValue("layout");
+                htmlTable += this._buildHtmlToGrid(info[i], gridLayout);
+            }
+
+            var mensagem_final = '';
+            var mensagem_final2 = '';
+            if (info.length &gt; 0) {
+                mensagem_final = 'Caso tenha alguma ação relevante a ser tomada em relação a estas pendências, por favor, clique no link ao lado das pendências.';
+                mensagem_final2 = 'Agradecemos pela colaboração na resolução.';
+
+                layoutHtml = layoutHtml.replaceAll("${mensagem_inicial}", messageEmail);
+                layoutHtml = layoutHtml.replaceAll("${bodyMsg}", htmlTable);
+                layoutHtml = layoutHtml.replaceAll("${mensagem_final1}", mensagem_final);
+                layoutHtml = layoutHtml.replaceAll("${mensagem_final2}", mensagem_final2);
+            } else {
+                var instanceUrl = gs.getProperty('glide.servlet.uri') + gs.getProperty('x_mdbda_tax_cnd.modulo.cnd.ativas');
+                mensagem_final = 'Para visualizar as pendências ativas existentes clicar no &lt;a href="' + instanceUrl + '"&gt;link&lt;\a&gt;';
+
+                layoutHtml = layoutHtml.replaceAll("${mensagem_inicial}", "Nenhuma nova pendência foi registrada para o grupo.");
+                layoutHtml = layoutHtml.replaceAll("${bodyMsg}", '');
+                layoutHtml = layoutHtml.replaceAll("${mensagem_final1}", mensagem_final);
+                layoutHtml = layoutHtml.replaceAll("${mensagem_final2}", '');
+            }
+        }
+
+        return layoutHtml;
+    },
+
+    _buildHtmlToGrid: function(info, gridLayout) {
+        gridLayout = gridLayout.replace("&lt;style&gt;", "&lt;style&gt;.MsoTableGrid td{border:1pt solid;padding: 0cm 5.4pt;font-size: 10pt;}");
+
+        var html = "";
+        for (var j = 0; j &lt; info.requisicoes.length; j++) {
+            html += "&lt;tr&gt;&lt;td&gt;" + info.requisicoes[j].unidade + "&lt;/td&gt;";
+            html += "&lt;td&gt;" + info.requisicoes[j].criticidade + "&lt;/td&gt;";
+            html += '&lt;td&gt;' + info.requisicoes[j].tipo_pendencia + "&lt;/td&gt;";
+            html += "&lt;td&gt;" + info.requisicoes[j].tipo_debito + "&lt;/td&gt;";
+            html += '&lt;td&gt;' + info.requisicoes[j].origem + "&lt;/td&gt;";
+            html += '&lt;td&gt;' + info.requisicoes[j].data_criacao + "&lt;/td&gt;";
+            html += "&lt;td&gt;&lt;a href=" + info.requisicoes[j].link + "&gt;" + info.requisicoes[j].number + "&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;";
+        }
+
+        gridLayout = gridLayout.replace("&lt;/tbody&gt;", html + "&lt;/tbody&gt;&lt;br&gt;");
+
+        return gridLayout;
+    },
+
+    _buildObjectToNotifCND: function(current) {
+        var instanceUrl = gs.getProperty('glide.servlet.uri') + "nav_to.do?uri=";
+        var arrObj = [];
+        var queryCND = '';
+        var today = new GlideDateTime();
+        var firstdate = new GlideDateTime();
+        if (today.getDayOfWeekLocalTime() == 1) {
+            //Se é segunda, pega os registros de sexta (depois das 17h), sábado, domingo e segunda (até as 17h)
+            firstdate.addDaysLocalTime(-3);
+        } else { //Se não, começa pelo dia de ontem
+            firstdate.addDaysLocalTime(-1);
+        }
+
+        queryCND = 'numberSTARTSWITHCNDP^grupo=' + current.grupo + "^sys_created_onBETWEENjavascript:gs.dateGenerate('" + firstdate.getDate() + "','17:00:00')@javascript:gs.dateGenerate('" + today.getDate() + "','16:59:59')^esfera=federal";
+
+        var grCND = new GlideRecord('x_mdbda_tax_cnd_issue');
+        grCND.addEncodedQuery(queryCND);
+        grCND.orderBy('unidade.prioridade');
+        grCND.orderBy('unidade.name');
+        grCND.orderBy('tipo_pendencia');
+        grCND.query();
+
+        while (grCND.next()) {
+            var obj = {};
+            var req = {};
+            var grupo = grCND.getDisplayValue('grupo');
+            var link = instanceUrl + grCND.getLink(true);
+            var data_criacao = grCND.getDisplayValue('data_da_criacao_do_debito');
+            data_criacao = data_criacao.replace(' BRT', '');
+            var index = this.searchNameReturningIndex(arrObj, grupo);
+            if (index != -1) {
+                req.unidade = grCND.getDisplayValue('unidade');
+                req.criticidade = grCND.getDisplayValue('unidade.prioridade');
+                req.tipo_pendencia = grCND.getDisplayValue('tipo_pendencia');
+                req.tipo_debito = grCND.getDisplayValue('tipo_debito');
+                req.origem = grCND.getDisplayValue('origem');
+                req.data_criacao = data_criacao;
+                req.number = grCND.getDisplayValue('number');
+                req.link = link;
+                arrObj[index].requisicoes.push(req);
+            } else {
+                obj.grupo = grupo;
+                obj.requisicoes = [];
+                req.unidade = grCND.getDisplayValue('unidade');
+                req.criticidade = grCND.getDisplayValue('unidade.prioridade');
+                req.tipo_pendencia = grCND.getDisplayValue('tipo_pendencia');
+                req.tipo_debito = grCND.getDisplayValue('tipo_debito');
+                req.origem = grCND.getDisplayValue('origem');
+                req.data_criacao = data_criacao;
+                req.number = grCND.getDisplayValue('number');
+                req.link = link;
+                obj.requisicoes.push(req);
+                arrObj.push(obj);
+            }
+        }
+
+        return arrObj;
+    },
+
+    searchNameReturningIndex: function(arrObj, grupo) {
+        for (var i = 0; i &lt; arrObj.length; i++) {
+            if (arrObj[i].grupo == grupo) {
+                return i;
+            }
+        }
+        return -1;
+    },
+
+    getGroupMembersAndManagerEmails: function(groupId) {
+        var groupMembersAndManagerEmails = [];
+
+        var group = new GlideRecord('sys_user_group');
+        if (group.get(groupId)) {
+            var groupManager = group.getValue('manager');
+
+            var groupMember = new GlideRecord('sys_user_grmember');
+            groupMember.addQuery('group', groupId);
+            groupMember.addEncodedQuery('user.active=true');
+            groupMember.query();
+            while (groupMember.next()) {
+                var memberEmail = groupMember.getDisplayValue('user.email');
+                groupMembersAndManagerEmails.push(memberEmail);
+            }
+
+            if (groupManager) {
+                var managerUser = new GlideRecord('sys_user');
+                if (managerUser.get(groupManager)) {
+                    var managerEmail = managerUser.getValue('email');
+                    groupMembersAndManagerEmails.push(managerEmail);
+                }
+            }
+        }
+
+        var uniqueEmailArray = new global.ArrayUtil().unique(groupMembersAndManagerEmails);
+
+        return uniqueEmailArray;
+    },
+
+    getResolutionGroup: function() {
+        var gp = ' ';
+        var a = current.tipo_debito;
+        if (!a)
+            return;
+
+        var grp = this.getRecord("x_mdbda_tax_cnd_generic_choice_value", a);
+        if (grp) {
+            if (gp.length &gt; 0) {
+                gp += (',' + grp.resolution_group);
+            } else {
+                gp = grp.resolution_group;
+            }
+        }
+        return 'sys_idIN' + gp;
+    },
+
+    countResolutionGroup: function(tipo_debito) {
+        var gp = '';
+        var a = tipo_debito ? tipo_debito : this.getParameter('sysparm_tipo_debito');
+        if (!a)
+            return;
+
+        var grp = this.getRecord("x_mdbda_tax_cnd_generic_choice_value", a);
+        if (grp) {
+            if (gp.length &gt; 0) {
+                gp += (',' + grp.resolution_group);
+            } else {
+                gp = grp.resolution_group;
+            }
+        }
+        var num = gp.split(",");
+        if (num.length &gt; 1) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+
+    showRedirectTask: function(current) {
+        var answer = false;
+        switch (true) {
+            case current.state == CNDUtils.WORK_IN_PROGRESS &amp;&amp; current.assigned_to == gs.getUserID() &amp;&amp; current.tipo_de_tarefa == 'tratamento_debito' &amp;&amp; (current.esfera == 'federal' || current.esfera == 'estadual'):
+                answer = true;
+                break;
+            default:
+                break;
+        }
+
+        return answer;
+    },
+
+    calculateRedirectHistory: function(history, modal) {
+        var history_old = history ? history : this.getParameter('sysparm_history');
+        var modal_text = modal ? modal : this.getParameter('sysparm_modal');
+        var redirectObj = {};
+        var history_new = '';
+
+        var today = new GlideDateTime();
+        today = today.getDisplayValueLang("medium", "pb");
+
+        if (history_old != '') {
+            history_new = today + ': ' + modal_text + '\n' + history_old;
+        } else {
+            history_new = today + ': ' + modal_text;
+        }
+
+        redirectObj.assignment_group = gs.getProperty('x_mdbda_tax_cnd.cnd.geral');
+        redirectObj.history_new = history_new;
+        return JSON.stringify(redirectObj);
+    },
+
+    criaVinculoPendencia: function(parent, pendencia) {
+        var parentID = parent || this.getParameter('sysparm_parent');
+        var pendenciaID = pendencia || this.getParameter('sysparm_pendencia');
+
+        var grCNDTask = new GlideRecord('x_mdbda_tax_cnd_issue');
+        grCNDTask.addEncodedQuery('stateNOT IN4^parent=' + pendenciaID);
+        grCNDTask.query();
+        while (grCNDTask.next()) {
+            grCNDTask.setValue('state', 4);
+            grCNDTask.update();
+
+        }
+
+        var grCNDParent = new GlideRecord('x_mdbda_tax_cnd_issue');
+        if (grCNDParent.get(parentID)) {
+            var grCNDPend = new GlideRecord('x_mdbda_tax_cnd_issue');
+            if (grCNDPend.get(pendenciaID)) {
+                grCNDPend.setValue('esfera', grCNDParent.getValue('esfera'));
+                grCNDPend.setValue('situacao', grCNDParent.getValue('situacao'));
+                grCNDPend.setValue('periodo_de_referencia', grCNDParent.getValue('periodo_de_referencia'));
+                grCNDPend.setValue('assignment_group', grCNDParent.getValue('assignment_group'));
+                grCNDPend.setValue('data_da_consulta', grCNDParent.getValue('data_da_consulta'));
+                grCNDPend.setValue('multa', grCNDParent.getValue('multa'));
+                grCNDPend.setValue('grupo', grCNDParent.getValue('grupo'));
+                grCNDPend.setValue('origem', grCNDParent.getValue('origem'));
+                grCNDPend.setValue('saldo_devedor', grCNDParent.getValue('saldo_devedor'));
+                grCNDPend.setValue('data_emissao_certidao', grCNDParent.getValue('data_emissao_certidao'));
+                grCNDPend.setValue('unidade', grCNDParent.getValue('unidade'));
+                grCNDPend.setValue('tipo_debito', grCNDParent.getValue('tipo_debito'));
+                grCNDPend.setValue('data_limite_renovacao', grCNDParent.getValue('data_limite_renovacao'));
+                grCNDPend.setValue('close_notes', grCNDParent.getValue('close_notes'));
+                grCNDPend.setValue('dias_ate_vencimento', grCNDParent.getValue('dias_ate_vencimento'));
+                grCNDPend.setValue('uf', grCNDParent.getValue('uf'));
+                grCNDPend.setValue('dias_validade_certidao', grCNDParent.getValue('dias_validade_certidao'));
+                grCNDPend.setValue('expurgar', grCNDParent.getValue('expurgar'));
+                grCNDPend.setValue('data_validade_certidao', grCNDParent.getValue('data_validade_certidao'));
+                grCNDPend.setValue('link_sistema_juridico', grCNDParent.getValue('link_sistema_juridico'));
+                grCNDPend.setValue('data_da_criacao_do_debito', grCNDParent.getValue('data_da_criacao_do_debito'));
+                grCNDPend.setValue('assigned_to', grCNDParent.getValue('assigned_to'));
+                grCNDPend.setValue('receita', grCNDParent.getValue('receita'));
+                grCNDPend.setValue('motivo_do_encerramento', grCNDParent.getValue('motivo_do_encerramento'));
+                grCNDPend.setValue('tipo_pendencia', grCNDParent.getValue('tipo_pendencia'));
+                grCNDPend.setValue('juros', grCNDParent.getValue('juros'));
+                grCNDPend.setValue('fonte', grCNDParent.getValue('fonte'));
+                grCNDPend.setValue('situacao_da_pendencia', grCNDParent.getValue('situacao_da_pendencia'));
+                grCNDPend.setValue('tarefas_concluidas', grCNDParent.getValue('tarefas_concluidas'));
+                grCNDPend.setValue('valor_original', grCNDParent.getValue('valor_original'));
+                grCNDPend.setValue('data_vencimento', grCNDParent.getValue('data_vencimento'));
+                grCNDPend.setValue('informacoes_complementares', grCNDParent.getValue('informacoes_complementares'));
+                grCNDPend.setValue('obs_certidao', grCNDParent.getValue('obs_certidao'));
+                grCNDPend.setValue('referencia', grCNDParent.getValue('referencia'));
+                grCNDPend.setValue('unidade.cnpj', grCNDParent.getValue('unidade.cnpj'));
+                grCNDPend.setValue('unidade.razao_social', grCNDParent.getValue('unidade.razao_social'));
+                grCNDPend.update();
+            }
+            return grCNDParent.getValue('number');
+        }
+
+
+
+    },
+
+    userHasGroup: function(user, group) {
+        var groupID;
+        var grGetGroup = new GlideRecord('sys_user_group');
+        grGetGroup.addQuery('name', group);
+        grGetGroup.query();
+        if (grGetGroup.next()) {
+            groupID = grGetGroup.getUniqueValue();
+        }
+
+        var grGroup = new GlideRecord('sys_user_grmember');
+        grGroup.addQuery('user', user);
+        grGroup.addQuery('group', groupID);
+        grGroup.query();
+        if (grGroup.next()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    },
+
+    desvincularPendencia: function(pendencia) {
+
+        var pendenciaID = pendencia || this.getParameter('sysparm_pendencia');
+		var pendenciaPai = '';
+        var grCNDTask = new GlideRecord('x_mdbda_tax_cnd_issue');
+        grCNDTask.addEncodedQuery('stateNOT IN3,4^sys_id=' + pendenciaID);
+        grCNDTask.query();
+        if (grCNDTask.next()) {
+
+			pendenciaPai = grCNDTask.getDisplayValue('parent');
+
+            grCNDTask.setValue('parent', '');
+            grCNDTask.update();
+
+            var inputs = {};
+            inputs['current'] = grCNDTask; // GlideRecord of table:  
+            inputs['table_name'] = 'x_mdbda_tax_cnd_issue';
+
+            // Start Asynchronously: Uncomment to run in background.
+            // sn_fd.FlowAPI.getRunner().flow('x_mdbda_tax_cnd.aoop_cnd_task_create').inBackground().withInputs(inputs).run();
+
+            // Execute Synchronously: Run in foreground.
+            sn_fd.FlowAPI.getRunner().flow('x_mdbda_tax_cnd.aoop_cnd_task_create').inForeground().withInputs(inputs).run();
+
+			return pendenciaPai;
+
+        }
+		
+    },
+
+	checkAttachment: function(attachmentID){
+		var attach = attachmentID || this.getParameter('sysparm_attachmentid');
+		var grAttach = new GlideRecord('sys_attachment');
+		if(grAttach.get(attach)){
+			if(grAttach.getValue('content_type') != 'application/pdf'){
+				return true;
+			}
+		}
+	},
+
+    type: 'CNDUtils'
+});]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;auriclecio.marques@aoop.com.br&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-08-23 16:02:31&lt;/sys_created_on&gt;&lt;sys_id&gt;9f50949a1bb8751068eb0fe1f54bcbd0&lt;/sys_id&gt;&lt;sys_mod_count&gt;164&lt;/sys_mod_count&gt;&lt;sys_name&gt;CNDUtils&lt;/sys_name&gt;&lt;sys_package display_value="Tax CND" source="x_mdbda_tax_cnd"&gt;96be4ee91b30b11068eb0fe1f54bcbaa&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="Tax CND"&gt;96be4ee91b30b11068eb0fe1f54bcbaa&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_9f50949a1bb8751068eb0fe1f54bcbd0&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;gabriel.diogo@aoop.com.br&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-07 19:19:30&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-1994335535</payload_hash>
+<remote_update_set display_value="Aoop: STRY0240659 – [CND] Criar vínculo entre pendências v5">a26dd95b1be60e504a422021f54bcb08</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-06-07 20:13:02</sys_created_on>
+<sys_id>a66dd95b1be60e504a422021f54bcb08</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18ff4244d930000001</sys_recorded_at>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-06-07 20:13:02</sys_updated_on>
+<table/>
+<target_name>CNDUtils</target_name>
+<type>Script Include</type>
+<update_domain>global</update_domain>
+<update_guid>ae21dd9b07660e50374acc5d52011492</update_guid>
+<update_guid_history>ae21dd9b07660e50374acc5d52011492:-1994335535,44ae4d575e660e5035adec677a1a375b:-439205672,f696327e9cea4a5075d68c24f6a2873c:1649539833,8960e76672e20a5065ae999b4c913d4f:173820633,94c9c7e61beec6503893ea506d9d889d:249704162,12388ba260eec6506d0be05fa4bb166c:-509765214,ffe4326abf2ac6501b9667c7c4a18d21:1462866341,1fdb6956ea264650a59da3a0bb54d1c1:-1285877786,0050a9128ae24650e1b083b788d488af:588789803,55f69d9a002246507462786d134ca689:171812195,786e455a74ee0650a2578a94603787ca:1092294489,6cdccd16f3ee0650af1165a57e43ccf7:-269490732,419cc1168eee0650f86e8e7e75595426:281975918,3e8c0d16a9ee0650112e674bc93f1734:-269490732,dfc8091e66ae0650a1a87e348d8375d3:-164510734,7b16055a7dae065041477d89e3bbde8c:400497035,8e9f3852bbae06508bc5ffb8e0630acd:-164510734,6f3e385ef46e0650f0467f000da565f3:-538995006,c68dbc1e836e0650b03e268c6d851dd0:2124796063,d198f0961c6e06509ef62befbfaf3497:1966899546,16fe361c90eec6102d294078f2c1e0be:1723317740,5a9df21893eec6109046bb7e7dcda220:1799464041,bf6c7a1406eec6100d266543eb0600bc:1837991768,7e0c7ed04feec610c89da6021af66dfd:831335934,fedb76d01ceec610a674faa1aa911010:861892388,7b37218c75260610e4254b851d28acfc:1723317740,ff03adc0132606102cbd867048c9b4d3:-666389230,3dc6ff7f66d2c210ed92a1bdb7eb3f31:1957627543,590d38b326d28210e2ed71dd78c6d193:1494868224,036c387316d282109138da6a33469120:-1604089240,1383b8fbe9528210390ba2107fe6cfc4:-1334545622,7fd2f0bbad5282105262911118d77dc2:1743995735,a58178379b528210f5458a12f4dfb6fd:937712413,1d40f433ff5282107363d50687ff3401:127778445,30e168b3989e4210d2fcf16818820387:1696517423,a6f05037dfda421034f668a51669a545:-740512839,0ba090f300da42106bb7a0974c1170fa:17857892,4bbdc47b449a421081a604df1b6d6021:-157069626,fb9dc47b879a4210d0790d9bf2769197:-1280977434,eddeb36d1a237d500e837b14194276f5:1014968364,d3716d3e07d7bd10bf8c84ee681ae8e5:-1832690310,39531308229335108205b874796a83fe:-2090543692,1042d3847f933510c5f6c6499bd82b1e:-1307437118,c7d00008b497f1103261f955eef48dbf:-2090543692,f08b33b37c87f1102aa78da2af79c463:-383847112,6e68fbff5647f1104a32082686051a5f:-2090543692,6838b7ff9047f110234deea43a2fcaf6:-1167741339,092d93f70883f110c90416ac8b0326d3:-2090543692,190d1fb7d583f1107db2b3e3373bd01d:403065527,f6ec5bb79683f110ae494d9a64ab000a:1425698067,5879973fee43f110d68513341a9a0e3f:-549625864,2b8813fbe943f110d0c23754e944c606:1604461389,9bd29fbfcd03f110882d3fd1e60a00b9:-837026666,1c419fbbbf03f110e1484ff62371a132:-630498820,90111fbb9203f110e320f7e1536f6967:-837026666,78ff0b3b5b03f1107a5e01eeaf7bfb34:1703100025,33afcbf70403f11043119516b2d939c6:-566204044,f04fc3f71903f110f122d6d2763eacb8:-306260485,260f03f79d03f1108e28bc8948ae83c6:2039492145,f9ce0bb75e03f1105963b3e5862831ca:800004361,252c83b3d303f1108a8d7de3ab1ad5db:-394264785,5efb0f73e003f11045424589d456e23e:202334260,df0b87332003f11092b5d447478af1ea:-2031420658,1665cb37decfb110fe1afe6d313a5dfc:810471210,b345c7376ecfb110b32d3eaa029360ef:1368882493,002547379bcfb110adfcfc991762e804:117922897,bda39579e6b235108f560c5dbcb414d4:-577049438,5ea0dd353fb2351034294ea263e236aa:-1973986396,f0a1707123323510e72b3f731f0aa6e0:-577049438,a741b831c8323510eecb887fb1db3e40:-915679916,75afa0fd09fef11027d193d956129967:27614892,e57dac79c1fef1102f723d95ce278dcb:-477244898,81fc68796dfef1108d90016fe1a0c87b:-85925763,d00c2cf50afef110947a378b78175b91:-232484471,3f4be0b56bfef110a6f8efa85413ab3c:-85925763,dc9aec35eafef11069d07fdaffaab776:1302415951,b2e9e035b1fef110d6961c5ebb77ea7a:-885586819,ceb2e8b5aabef110ba73bd4f9fb5fa73:-1070573214,867f40b58c3ef1105978ed046d6d6641:219653115,1a0f4c355d3ef11022bac3aac56389bc:1739304563,d61e48b1413ef110ed4e3e771ea2f589:-1960487195,edfa80f9edfaf110ed83495d03a7fe01:-1102579765,b94c38e56e32f110a93ed9fc0c537d8d:-1043583702,c988f4a10432f110cd49e4312d89c827:-987193686,543834a18132f11085f1af2e6d780440:-1216223755,9b18f061a232f11012fd840ff3af6894:874884181,db6774611332f110c8bd253db1580911:-1659668482,445670210632f11030eb4d470fb43fd2:-642720362,9d24bc6dd6feb11088f8fb71c2e8f0e5:718375114,4b62a061d5beb11001e74205607a0486:-851852770,c8d1e8215fbeb110d23bcaa313d7a5bd:-1069881389,e9ee18a9307eb11098193b2361cde1ec:-283120531,8ae6d0ad0d3eb11009c21282103e9f75:-559412800,c059362d576ef5103026212902528a4b:1979220665,46623221356ef510e011a8004338a787:-2047077706,11813aadc72ef510388a860662753188:-762920172,2fdaaae1a92ef51065e3de12532ead57:1091034702,b93966a1b52ef510c774b4c5b4375054:1993696730,6fac1de64f4eb9506540fb097f11a74d:-1457259875,4fbb99a6c64eb950cd8eac861925bec6:314514721,cd8a9166b34eb9508a721fd80e4958a8:606478884,be7a302ad88ab950de965fc0ac5b64fb:314514721,e75a70a67a8ab950ad1a100e762cde6b:-1457259875,51f930a6498ab9507f2e38c74c7197de:-603704318,ad94a016d20a7950c308c2da25ba1d0c:376774878,31742016b20a7950b2169b078f3c279d:1031349393,3fb0ac9e3ec6795024a867a8a43f9f91:376774878,6a0f185e73c67950dff1f18caabf690d:288214143,7bd60f58dd393d1005d116f53b3c52c1:2084643492,b696cb186d393d109764ac7053ff1f1c:-695907947,cb668f183e393d108049d53f02020310:-393216159,2716471830393d100cad43a043a1734d:-1971449764,b375031887393d101af6c020a7bdfadd:-227770062,fe65031822393d10e99414fc038caad7:268528311,4905c7d4d0393d10a34ef4b461bfbc7c:-759487498,df7483d421393d10d0a8c4b9c28cd6c0:272941947,a454cf9419393d102b255bc4e934611a:160758358,51230b54fc393d10c2b9fca5d161f757:876773300,6ed2c354f5393d10a3e4b12a35b0023f:-2034395976,80e08390b2393d10fc222fe9b7d85f0b:-1531321931,63904f5092393d104ef05ad347605860:356906044,c0ed37048b757110c072838778875aa9:1909546989,4bb017006df17110845c84cea6c0d5a7:506442286,4f9e870c17b17110c92d5f0286ed9729:213787204,20aa83c40db1711065204094199c6e28:-1646319058,047a0bc46db17110c034706dd2ca727d:-2039645522,7e09038495b17110b2f0cdcfe0b50e94:-1724713604,c398cf44f9b1711051aea98d0bc73ef4:-605509264,56b70744bbb17110baefd356a8f62101:957666422,d6d64b049bb17110dc6ab8666bdbff15:1246058758,6f0ab24464717110d90946e283a6a3b3:957666422,6ab1fa44cf317110f090138aace52f74:1754303410,17b3ee0047fd3110be2ffbe040e84f7e:957666422,b4605e1dab1dbd104593c6214855ff46:-709113044,72d621d5521db9103dfc1927c3cc2325:889609235,71daa228321d7910aab7652710101984:1054001783,8bfebb9c62517510f7225dd0ecd50f41:-540727611,b59df39c645175100f76c23d5f21e486:1759689631,247973982b517510eb7a8ccebc12b669:83528837,04173318de5175107b8751835f59f0e6:-850299766,d385f714db517510714733fa51b36fd3:656480727,1c94bfd09251751065a0cf67cda5b848:-2083057344,9af17750b051751005a6351aa903872e:-242150588,945ab31ab50139109500a07a9bdac617:1957508836,985ab31a960139105c88137e01336115:-602052176,d5ff48472b557910912c69403daa0f2b:-602052176</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><unload unload_date="2024-06-07 18:43:12">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Tax CND">96be4ee91b30b11068eb0fe1f54bcbaa</application>
+<application_name>Tax CND</application_name>
+<application_scope>x_mdbda_tax_cnd</application_scope>
+<application_version>1.0.0</application_version>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description/>
+<inserted/>
+<name>Aoop: STRY0240659 – [CND] Criar vínculo entre pendências v4</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>60e7385b1b620e504a422021f54bcbf8</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-06-07 18:43:12</sys_created_on>
+<sys_id>eed80d131b260e504a422021f54bcbfa</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-06-07 18:43:12</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Tax CND">96be4ee91b30b11068eb0fe1f54bcbaa</application>
+<category>customer</category>
+<comments/>
+<name>sys_ui_action_7a10a4561b6a06504a422021f54bcb86</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_ui_action"&gt;&lt;sys_ui_action action="INSERT_OR_UPDATE"&gt;&lt;action_name&gt;sys_vincular&lt;/action_name&gt;&lt;active&gt;true&lt;/active&gt;&lt;client&gt;true&lt;/client&gt;&lt;client_script_v2&gt;&lt;![CDATA[function onClick(g_form) {
+
+}]]&gt;&lt;/client_script_v2&gt;&lt;comments/&gt;&lt;condition&gt;current.canWrite() &amp;amp;&amp;amp; current.parent == "" &amp;amp;&amp;amp; current.sys_class_name == 'x_mdbda_tax_cnd_issue' &amp;amp;&amp;amp; new CNDUtils().userHasGroup(gs.getUserID(), 'CND - Geral')&lt;/condition&gt;&lt;form_action&gt;true&lt;/form_action&gt;&lt;form_button&gt;true&lt;/form_button&gt;&lt;form_button_v2&gt;false&lt;/form_button_v2&gt;&lt;form_context_menu&gt;false&lt;/form_context_menu&gt;&lt;form_link&gt;false&lt;/form_link&gt;&lt;form_menu_button_v2&gt;false&lt;/form_menu_button_v2&gt;&lt;form_style/&gt;&lt;format_for_configurable_workspace&gt;false&lt;/format_for_configurable_workspace&gt;&lt;hint/&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;list_action&gt;false&lt;/list_action&gt;&lt;list_banner_button&gt;false&lt;/list_banner_button&gt;&lt;list_button&gt;false&lt;/list_button&gt;&lt;list_choice&gt;false&lt;/list_choice&gt;&lt;list_context_menu&gt;false&lt;/list_context_menu&gt;&lt;list_link&gt;false&lt;/list_link&gt;&lt;list_save_with_form_button&gt;false&lt;/list_save_with_form_button&gt;&lt;list_style/&gt;&lt;messages/&gt;&lt;name&gt;Vincular&lt;/name&gt;&lt;onclick&gt;check()&lt;/onclick&gt;&lt;order&gt;100&lt;/order&gt;&lt;script&gt;&lt;![CDATA[function check(){
+	var parent = g_form.getValue('parent');
+
+	if(parent == ''){
+		g_form.setMandatory('parent', true);
+		g_form.save();
+	}
+}]]&gt;&lt;/script&gt;&lt;show_insert&gt;false&lt;/show_insert&gt;&lt;show_multiple_update&gt;false&lt;/show_multiple_update&gt;&lt;show_query&gt;false&lt;/show_query&gt;&lt;show_update&gt;true&lt;/show_update&gt;&lt;sys_class_name&gt;sys_ui_action&lt;/sys_class_name&gt;&lt;sys_created_by&gt;gabriel.diogo@aoop.com.br&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-04 13:12:03&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;7a10a4561b6a06504a422021f54bcb86&lt;/sys_id&gt;&lt;sys_mod_count&gt;25&lt;/sys_mod_count&gt;&lt;sys_name&gt;Vincular&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Tax CND" source="x_mdbda_tax_cnd"&gt;96be4ee91b30b11068eb0fe1f54bcbaa&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Tax CND"&gt;96be4ee91b30b11068eb0fe1f54bcbaa&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_action_7a10a4561b6a06504a422021f54bcb86&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;gabriel.diogo@aoop.com.br&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-07 17:31:08&lt;/sys_updated_on&gt;&lt;table&gt;x_mdbda_tax_cnd_issue&lt;/table&gt;&lt;ui11_compatible&gt;true&lt;/ui11_compatible&gt;&lt;ui16_compatible&gt;false&lt;/ui16_compatible&gt;&lt;/sys_ui_action&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-1389070444</payload_hash>
+<remote_update_set display_value="Aoop: STRY0240659 – [CND] Criar vínculo entre pendências v4">eed80d131b260e504a422021f54bcbfa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-06-07 18:43:12</sys_created_on>
+<sys_id>a6d80d131b260e504a422021f54bcbfb</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18ff3c1168c0000001</sys_recorded_at>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-06-07 18:43:12</sys_updated_on>
+<table>x_mdbda_tax_cnd_issue</table>
+<target_name>Vincular</target_name>
+<type>UI Action</type>
+<update_domain>global</update_domain>
+<update_guid>8b58f49b98620e50cb0266e8a3afe2f6</update_guid>
+<update_guid_history>8b58f49b98620e50cb0266e8a3afe2f6:-1389070444,e4a23b3e0a6e069008dc9bf16ed904d9:-477731679,2b81bf7a576e0690a47f456ff2c60a70:2064835819,d79d3a3e81660690fc542195f445b73c:-1328354745,fcabcfea61eec6504c09257a3169ee59:-1113708655,584987a64beec65070277caa5c56fbd4:-1587952357,57a5355e196646505978672ae6f9f382:-1113708655,1b85f91e0a664650439801eba6e232ee:1551068743,79226956f8e246504e6eb5bb55133819:201982447,24e1615603e24650d5791b6bc7f26aea:-1203175026,bd80ad1298e246501733112ffd940933:-602822617,05a31dd2db22465056173399ddfb0627:-2121925099,3c8359d20e224650bd702930f80dd31b:-1241063018,acc1991220224650ccc7e0d8275093a7:622411866,e51119dedbee0650495af39b3ee3e5ee:-690717053,31b0d59ea4ee06507fd990c5f2fad7b2:1925860829,f480559ee9ee06507c43bdaa9c25f7a1:-364618231,a0ffc55e1dee0650ce55af3569b9f212:-428652346,3d9f4d1edcee0650d6b5ce77c5ecb48a:567659107,408f0d1eb8ee06501c57f3058836634b:800179832,8dde785e196e0650f1cc79956ab252b9:1846553835,f89e785e536e0650acde020047556b7d:1549717845,a7b028d65a6a06508d0e80eda37d7dfe:1846553835,5b90ec96dd6a0650e642f0ffe01de7b6:1164813663,3d80e896746a0650917ff389883e881f:-1588677790,2170a496d06a0650715e18ed95200dce:1725115488,de606496246a0650193dc9be3220c3b7:1419910375,ee402c56ad6a0650b87225fc71fed337:2014110407</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Tax CND">96be4ee91b30b11068eb0fe1f54bcbaa</application>
+<category>customer</category>
+<comments/>
+<name>sys_choice_x_mdbda_tax_cnd_task_state</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_choice action="INSERT_OR_UPDATE" field="state" table="x_mdbda_tax_cnd_task" version="3"><sys_choice_set action="INSERT_OR_UPDATE"><element>state</element><name>x_mdbda_tax_cnd_task</name><sys_class_name>sys_choice_set</sys_class_name><sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by><sys_created_on>2024-06-05 13:20:27</sys_created_on><sys_id>6bcb2d2e1bea86504a422021f54bcb92</sys_id><sys_mod_count>0</sys_mod_count><sys_name>state</sys_name><sys_package display_value="Tax CND" source="x_mdbda_tax_cnd">96be4ee91b30b11068eb0fe1f54bcbaa</sys_package><sys_policy/><sys_scope display_value="Tax CND">96be4ee91b30b11068eb0fe1f54bcbaa</sys_scope><sys_update_name>sys_choice_x_mdbda_tax_cnd_task_state</sys_update_name><sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by><sys_updated_on>2024-06-05 13:20:27</sys_updated_on></sys_choice_set><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>state</element><hint/><inactive>false</inactive><label>Aberto</label><language>pb</language><name>x_mdbda_tax_cnd_task</name><sequence>0</sequence><synonyms/><sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by><sys_created_on>2024-06-07 17:48:10</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>984c38131ba20e504a422021f54bcbff</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by><sys_updated_on>2024-06-07 17:48:10</sys_updated_on><value>1</value></sys_choice><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>state</element><hint/><inactive>false</inactive><label>Open</label><language>en</language><name>x_mdbda_tax_cnd_task</name><sequence>0</sequence><synonyms/><sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by><sys_created_on>2024-06-05 13:20:27</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>e3cb2d2e1bea86504a422021f54bcb92</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by><sys_updated_on>2024-06-05 13:20:27</sys_updated_on><value>1</value></sys_choice><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>state</element><hint/><inactive>false</inactive><label>Em andamento</label><language>pb</language><name>x_mdbda_tax_cnd_task</name><sequence>1</sequence><synonyms/><sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by><sys_created_on>2024-06-07 17:53:33</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>9f7df8171ba20e504a422021f54bcb5c</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by><sys_updated_on>2024-06-07 17:53:33</sys_updated_on><value>2</value></sys_choice><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>state</element><hint/><inactive>false</inactive><label>Work in progress</label><language>en</language><name>x_mdbda_tax_cnd_task</name><sequence>1</sequence><synonyms/><sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by><sys_created_on>2024-06-05 13:20:27</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>67cb6d2e1bea86504a422021f54bcba3</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by><sys_updated_on>2024-06-05 13:20:27</sys_updated_on><value>2</value></sys_choice><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>state</element><hint/><inactive>false</inactive><label>Closed Complete</label><language>en</language><name>x_mdbda_tax_cnd_task</name><sequence>2</sequence><synonyms/><sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by><sys_created_on>2024-06-05 13:20:28</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>efcb6d2e1bea86504a422021f54bcbc5</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by><sys_updated_on>2024-06-05 13:20:28</sys_updated_on><value>3</value></sys_choice><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>state</element><hint/><inactive>false</inactive><label>Concluído</label><language>pb</language><name>x_mdbda_tax_cnd_task</name><sequence>2</sequence><synonyms/><sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by><sys_created_on>2024-06-07 17:54:43</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>58cd70971ba20e504a422021f54bcb90</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by><sys_updated_on>2024-06-07 17:54:43</sys_updated_on><value>3</value></sys_choice><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>state</element><hint/><inactive>false</inactive><label>Cancelado</label><language>pb</language><name>x_mdbda_tax_cnd_task</name><sequence>3</sequence><synonyms/><sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by><sys_created_on>2024-06-07 17:56:44</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>4a3eb4971ba20e504a422021f54bcb5c</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by><sys_updated_on>2024-06-07 17:56:44</sys_updated_on><value>4</value></sys_choice><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>state</element><hint/><inactive>false</inactive><label>Closed Incomplete</label><language>en</language><name>x_mdbda_tax_cnd_task</name><sequence>3</sequence><synonyms/><sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by><sys_created_on>2024-06-05 13:20:28</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>ebcb6d2e1bea86504a422021f54bcbcf</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by><sys_updated_on>2024-06-05 13:20:28</sys_updated_on><value>4</value></sys_choice><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>state</element><hint/><inactive>false</inactive><label>Approving</label><language>en</language><name>x_mdbda_tax_cnd_task</name><sequence>4</sequence><synonyms/><sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by><sys_created_on>2024-06-05 13:20:28</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>e7cb6d2e1bea86504a422021f54bcbd9</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by><sys_updated_on>2024-06-05 13:20:28</sys_updated_on><value>5</value></sys_choice><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>state</element><hint/><inactive>false</inactive><label>Em aprovação</label><language>pb</language><name>x_mdbda_tax_cnd_task</name><sequence>4</sequence><synonyms/><sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by><sys_created_on>2024-06-07 17:58:10</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>8b8e74d71ba20e504a422021f54bcb68</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by><sys_updated_on>2024-06-07 17:58:10</sys_updated_on><value>5</value></sys_choice><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>state</element><hint/><inactive>false</inactive><label>Em validação</label><language>pb</language><name>x_mdbda_tax_cnd_task</name><sequence>5</sequence><synonyms/><sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by><sys_created_on>2024-06-07 17:58:48</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>40be74d71ba20e504a422021f54bcb2e</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by><sys_updated_on>2024-06-07 17:58:48</sys_updated_on><value>8</value></sys_choice><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>state</element><hint/><inactive>false</inactive><label>Validating</label><language>en</language><name>x_mdbda_tax_cnd_task</name><sequence>5</sequence><synonyms/><sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by><sys_created_on>2024-06-05 13:20:28</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>e3cb6d2e1bea86504a422021f54bcbe3</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by><sys_updated_on>2024-06-05 13:20:28</sys_updated_on><value>8</value></sys_choice><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>state</element><hint/><inactive>false</inactive><label>Em definição de área</label><language>pb</language><name>x_mdbda_tax_cnd_task</name><sequence>6</sequence><synonyms/><sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by><sys_created_on>2024-06-07 17:59:15</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>b2ce7cd71ba20e504a422021f54bcbc1</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by><sys_updated_on>2024-06-07 17:59:15</sys_updated_on><value>9</value></sys_choice><sys_choice action="INSERT_OR_UPDATE"><dependent_value/><element>state</element><hint/><inactive>false</inactive><label>In area definition</label><language>en</language><name>x_mdbda_tax_cnd_task</name><sequence>6</sequence><synonyms/><sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by><sys_created_on>2024-06-05 13:20:28</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>efcb6d2e1bea86504a422021f54bcbec</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by><sys_updated_on>2024-06-05 13:20:28</sys_updated_on><value>9</value></sys_choice></sys_choice></record_update>]]></payload>
+<payload_hash>-1637732787</payload_hash>
+<remote_update_set display_value="Aoop: STRY0240659 – [CND] Criar vínculo entre pendências v4">eed80d131b260e504a422021f54bcbfa</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-06-07 18:43:12</sys_created_on>
+<sys_id>e2d80d131b260e504a422021f54bcbfb</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18ff3db261f0000001</sys_recorded_at>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-06-07 18:43:12</sys_updated_on>
+<table>x_mdbda_tax_cnd_task</table>
+<target_name>CND Task.state</target_name>
+<type>Choice list</type>
+<update_domain>global</update_domain>
+<update_guid>80ee301b76a20e5024ac1fa33d8a3328</update_guid>
+<update_guid_history>80ee301b76a20e5024ac1fa33d8a3328:-1637732787,f6cebcd703a20e509e7a6a91a36be43c:-1637732787,48be3cd75aa20e50f0306f8fb188df1f:457100622,078ef4d702a20e50a82aadde228fd097:-1328887753,8e3e30d75ea20e50c9806f87a1bc442b:381861466,18cdb4974da20e509e04c726c68d012d:-1775081547,1f7db85746a20e50557a683f25a56c84:196564820,a44c7c13b2a20e50bca34b926db09aa9:-1675207560,efcbad2e2fea86506c7a2014410cad03:2121311338,bf4a63af26564210fe9b2171d32b3f74:56476124,5fb82f6b6c5642103b42ffb3e27c980c:245254786,dd68672b60564210c4fc9721b0b6ad9a:56476124,7d58e32bcf564210b871aa3199bed9a1:245254786,a548632b8e564210df50d4c2ad583141:202260482</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>

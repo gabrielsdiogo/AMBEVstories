@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><unload unload_date="2024-06-07 18:44:44">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Tax Global">5ba0b25a1b2d651068eb0fe1f54bcbd1</application>
+<application_name>Tax Global</application_name>
+<application_scope>x_mdbda_tax_global</application_scope>
+<application_version>1.0.1</application_version>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description/>
+<inserted/>
+<name>Aoop: STRY0240741 – [CND] Aprovação na Tarefa de Tratamento de Débito - Global</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>e39c7f7e1bee069068eb0fe1f54bcb54</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-06-07 18:44:44</sys_created_on>
+<sys_id>4d3949931b260e504a422021f54bcba4</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-06-07 18:44:44</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Tax Global">5ba0b25a1b2d651068eb0fe1f54bcbd1</application>
+<category>customer</category>
+<comments/>
+<name>sys_ui_action_2c55977d1b30f1104a422021f54bcb89</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_ui_action"&gt;&lt;sys_ui_action action="INSERT_OR_UPDATE"&gt;&lt;action_name&gt;tbc_close&lt;/action_name&gt;&lt;active&gt;true&lt;/active&gt;&lt;client&gt;true&lt;/client&gt;&lt;client_script_v2&gt;&lt;![CDATA[function onClick(g_form) {
+
+}]]&gt;&lt;/client_script_v2&gt;&lt;comments/&gt;&lt;condition&gt;new x_mdbda_tax_global.BaseCatalogUtils().showComplete(current) &amp;amp;&amp;amp; current.tipo_de_tarefa != 'tratamento_debito'&lt;/condition&gt;&lt;form_action&gt;true&lt;/form_action&gt;&lt;form_button&gt;true&lt;/form_button&gt;&lt;form_button_v2&gt;false&lt;/form_button_v2&gt;&lt;form_context_menu&gt;false&lt;/form_context_menu&gt;&lt;form_link&gt;false&lt;/form_link&gt;&lt;form_menu_button_v2&gt;false&lt;/form_menu_button_v2&gt;&lt;form_style/&gt;&lt;format_for_configurable_workspace&gt;false&lt;/format_for_configurable_workspace&gt;&lt;hint/&gt;&lt;isolate_script&gt;false&lt;/isolate_script&gt;&lt;list_action&gt;false&lt;/list_action&gt;&lt;list_banner_button&gt;false&lt;/list_banner_button&gt;&lt;list_button&gt;false&lt;/list_button&gt;&lt;list_choice&gt;false&lt;/list_choice&gt;&lt;list_context_menu&gt;false&lt;/list_context_menu&gt;&lt;list_link&gt;false&lt;/list_link&gt;&lt;list_save_with_form_button&gt;false&lt;/list_save_with_form_button&gt;&lt;list_style/&gt;&lt;messages/&gt;&lt;name&gt;Concluir&lt;/name&gt;&lt;onclick&gt;tbc_close()&lt;/onclick&gt;&lt;order&gt;300&lt;/order&gt;&lt;script&gt;&lt;![CDATA[function tbc_close() {
+		
+	var concluir = new GlideModal('glide_modal_confirm', true, 300);
+	concluir.setTitle('Confirma a conclusão?');
+	concluir.setPreference('focusTrap', true);
+	concluir.setPreference('onPromptComplete', onYes);
+	concluir.setPreference('onPromptCancel', onNo);
+	concluir.render();
+		
+}
+
+function onYes() {
+	var ga = new GlideAjax("BaseCatalogUtils");
+	ga.addParam("sysparm_name", "getState");
+	ga.getXMLAnswer(function(answer) {
+		var state = JSON.parse(answer);
+		g_form.setValue("state", state.CLOSED_COMPLETE);
+		g_form.save();
+	});
+}
+
+function onNo() {
+	return false;
+}]]&gt;&lt;/script&gt;&lt;show_insert&gt;false&lt;/show_insert&gt;&lt;show_multiple_update&gt;false&lt;/show_multiple_update&gt;&lt;show_query&gt;false&lt;/show_query&gt;&lt;show_update&gt;true&lt;/show_update&gt;&lt;sys_class_name&gt;sys_ui_action&lt;/sys_class_name&gt;&lt;sys_created_by&gt;lucas.nass@aoop.com.br&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-08-22 17:43:36&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;2c55977d1b30f1104a422021f54bcb89&lt;/sys_id&gt;&lt;sys_mod_count&gt;52&lt;/sys_mod_count&gt;&lt;sys_name&gt;Concluir&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Tax Global" source="x_mdbda_tax_global"&gt;5ba0b25a1b2d651068eb0fe1f54bcbd1&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Tax Global"&gt;5ba0b25a1b2d651068eb0fe1f54bcbd1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_action_2c55977d1b30f1104a422021f54bcb89&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;gabriel.diogo@aoop.com.br&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-06 18:32:31&lt;/sys_updated_on&gt;&lt;table&gt;x_mdbda_tax_global_base_catalog&lt;/table&gt;&lt;ui11_compatible&gt;false&lt;/ui11_compatible&gt;&lt;ui16_compatible&gt;false&lt;/ui16_compatible&gt;&lt;/sys_ui_action&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-1981368105</payload_hash>
+<remote_update_set display_value="Aoop: STRY0240741 – [CND] Aprovação na Tarefa de Tratamento de Débito - Global">4d3949931b260e504a422021f54bcba4</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-06-07 18:44:44</sys_created_on>
+<sys_id>413949931b260e504a422021f54bcba5</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>18feed2eba10000001</sys_recorded_at>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-06-07 18:44:44</sys_updated_on>
+<table>x_mdbda_tax_global_base_catalog</table>
+<target_name>Concluir</target_name>
+<type>UI Action</type>
+<update_domain>global</update_domain>
+<update_guid>94dc37be66ee06900df9e722595ec0ff</update_guid>
+<update_guid_history>94dc37be66ee06900df9e722595ec0ff:-1981368105,591a749d8955b91098dd6cf0f2083cfa:1692178613,26bb8c789e5db510f10268b16b71abd2:615228144,24ab8878db5db510f2081676633681f0:1775165698,cc9b8878985db510a00f5fdf75b2aa54:-458469586,a07b8478415db51063cdea4bd7b7ac56:538588590,cb4b08380d5db5104050f4e07359d931:1853207722,b01b0438815db510b816fac5b8cf9e42:537753388,787a88b4695db5106c5467d83cb1314d:1932260871,a6890034235db510fc5174504b3d76ac:-332432486,e06984f04a5db510beeb828759008803:-1127408192,094988b0015db5102f9eaeac585d88c9:1058935472,ab198cb0175db510e3ea8222dcb78c55:-203921502,3ce8c0b0ab5db510d85b81fd12938f58:378121597,7995295c0b95f1108d4e0bb8bbbe21b0:1879518906,b9d04d76ef813d106917aa2c6e366e13:1420665980,236085f2cc813d10c5de467454c11bab:-575605844,8f10c9328b813d103357676476e5cb12:1420665980,376b70b6df013d10d2fdb5ac82a68b70:1508347301,87c1cd0a60fcf11000c10fbc0aca4203:-1738516773,75a0c946adfcf110dec0a24d6df5917d:1143756219,d86085463efcf110ba08689041c43019:-159107173,7b00cd067cfcf1103a5377ed527221e8:1143756219,26bff806b2fcf1100ac26a68dc321d8a:-1508662822,178bb40249fcf110a4267183edfdcc23:-1384982022,2941140eb3f8f1100a751ae1f1fc0fad:-1508662822,5680840ea938f1105a70b98f4e1c2f06:-32775203,87b4337122b4f110ecc43459fc1206a1:-1735533168,95f3bbbd8a74f11040e1146aaae89a12:-1508662822,20c3b7bdd874f11047c085457cdf0199:-1735533168,0e62bbf93e74f11024daf834eec478bb:1139726645,b641f3799a74f110146707607fd1ed21:259781236,e7c0b7f5d174f110533aa2035228f7eb:-1239844417,11b07bb51574f11061c562d2e4ef08f2:1270780983,5b6c23f1cb34f1109e708133b9cbbdcb:1757124119,85dba7711d34f1100e12b9208762da2f:-815812460,844beb31b334f110a0107d1944998b7f:-458851934,3d2b6331e534f110a09dee6cc4834fd2:1235723537,9442a3b90ab0f110ff9c5df5150ee52e:-675517333,f9d1e3f5d2b0f1100e3b9a0feb9cf4cc:1690007412,95b1ebb5efb0f1106de6ae8d96fdb4ed:1197337648,8aa1ebb500b0f11044057103a80d5311:-1787624944,3c91e7b500b0f1101c099c57a09c7a70:1429888528,b5a0673502b0f110a3787bafeb1aa4bc:-2053086912,f290273559b0f1105c8adb67f764ee35:-396514880,24702ff14bb0f1103672b82b23a2ec66:-1717384371,be406bf1e0b0f110193b2ac446056eed:478941452,7a306bf10bb0f1104a8d3d0774364d07:-215183333,b6cf5fb12bb0f110c631b71addebbc7a:-1445263041,267f57b179b0f110ca856eed758ce931:-1677541561,446f93b169b0f110395598978d254077:-313998233,4c3f5f7144b0f110f314973c077d9963:-528533280,1e1f5b718fb0f110914d926598e45192:1583092507,901f5b714bb0f1108e641413f52ffbbe:-313998233,862edffdde70f11070fc477342ebed2c:-864424130</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>
