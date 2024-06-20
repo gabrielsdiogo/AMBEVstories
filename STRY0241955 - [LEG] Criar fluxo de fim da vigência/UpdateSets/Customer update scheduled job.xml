@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2024-06-12 19:10:10">
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Tax Legis">d10c9c8f1b704dd44a422021f54bcbe7</application>
+<category>customer</category>
+<comments/>
+<name>sysauto_script_d5dee5601bbe061068eb0fe1f54bcbcc</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sysauto_script"&gt;&lt;sysauto_script action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;business_calendar/&gt;&lt;condition/&gt;&lt;conditional&gt;false&lt;/conditional&gt;&lt;entered_time/&gt;&lt;max_drift/&gt;&lt;name&gt;Aoop: [LEG] Fim de vigencia 20 dias&lt;/name&gt;&lt;offset/&gt;&lt;offset_type&gt;0&lt;/offset_type&gt;&lt;run_as display_value="System Administrator"&gt;6816f79cc0a8016401c5a33be04be441&lt;/run_as&gt;&lt;run_as_tz/&gt;&lt;run_dayofmonth&gt;1&lt;/run_dayofmonth&gt;&lt;run_dayofweek&gt;1&lt;/run_dayofweek&gt;&lt;run_period/&gt;&lt;run_start&gt;2024-06-11 18:41:33&lt;/run_start&gt;&lt;run_time&gt;1970-01-01 09:00:00&lt;/run_time&gt;&lt;run_type&gt;daily&lt;/run_type&gt;&lt;script&gt;&lt;![CDATA[var grObject = new GlideRecord('x_mdbda_tax_legis_object');
+grObject.addEncodedQuery('validity_endISNOTEMPTY^requires_implementation=yes^state!=3');
+grObject.query();
+while(grObject.next()){
+    var future = new GlideDateTime(grObject.getValue('validity_end'));
+    var diff = GlideDateTime.subtract(new GlideDateTime(), future);
+    var dias = (diff.getDayPart() +1);
+    if(dias == '20'){
+        //ativa a flag 'fim de vigencia' e mudar status para aberto
+        grObject.setValue('state', 1);
+        grObject.setValue('fim_de_vigencia', true);
+        grObject.update();
+    }
+}
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sysauto_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;gabriel.diogo@aoop.com.br&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-11 18:43:10&lt;/sys_created_on&gt;&lt;sys_id&gt;d5dee5601bbe061068eb0fe1f54bcbcc&lt;/sys_id&gt;&lt;sys_mod_count&gt;4&lt;/sys_mod_count&gt;&lt;sys_name&gt;Aoop: [LEG] Fim de vigencia 20 dias&lt;/sys_name&gt;&lt;sys_package display_value="Tax Legis" source="x_mdbda_tax_legis"&gt;d10c9c8f1b704dd44a422021f54bcbe7&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Tax Legis"&gt;d10c9c8f1b704dd44a422021f54bcbe7&lt;/sys_scope&gt;&lt;sys_update_name&gt;sysauto_script_d5dee5601bbe061068eb0fe1f54bcbcc&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;gabriel.diogo@aoop.com.br&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-12 17:52:49&lt;/sys_updated_on&gt;&lt;time_zone/&gt;&lt;upgrade_safe&gt;false&lt;/upgrade_safe&gt;&lt;/sysauto_script&gt;&lt;/record_update&gt;</payload>
+<payload_hash>1666861502</payload_hash>
+<remote_update_set display_value=""/>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-06-12 19:08:57</sys_created_on>
+<sys_id>20be36b81b72821068eb0fe1f54bcbe4</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1900dda6ff30000001</sys_recorded_at>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-06-12 19:08:57</sys_updated_on>
+<table/>
+<target_name>Aoop: [LEG] Fim de vigencia 20 dias</target_name>
+<type>Scheduled Script Execution</type>
+<update_domain>global</update_domain>
+<update_guid>2cbe36b8917282104ebd7d0fdec63fe3</update_guid>
+<update_guid_history>2cbe36b8917282104ebd7d0fdec63fe3:1666861502</update_guid_history>
+<update_set display_value="[TAX][STRY0241955] - [LEG] Criar fluxo de fim da vigência">76f1a02c1b7ec21068eb0fe1f54bcb9d</update_set>
+<view/>
+</sys_update_xml>
+</unload>

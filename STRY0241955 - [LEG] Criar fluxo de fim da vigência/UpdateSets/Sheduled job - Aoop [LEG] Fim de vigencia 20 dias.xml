@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2024-06-12 19:09:09">
+<sysauto_script action="INSERT_OR_UPDATE">
+<active>false</active>
+<business_calendar display_value=""/>
+<condition/>
+<conditional>false</conditional>
+<entered_time/>
+<max_drift/>
+<name>Aoop: [LEG] Fim de vigencia 20 dias</name>
+<offset/>
+<offset_type>0</offset_type>
+<run_as display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</run_as>
+<run_as_tz/>
+<run_dayofmonth>1</run_dayofmonth>
+<run_dayofweek>1</run_dayofweek>
+<run_period/>
+<run_start>2024-06-11 18:41:33</run_start>
+<run_time>1970-01-01 09:00:00</run_time>
+<run_type>daily</run_type>
+<script><![CDATA[var grObject = new GlideRecord('x_mdbda_tax_legis_object');
+grObject.addEncodedQuery('validity_endISNOTEMPTY^requires_implementation=yes^state!=3');
+grObject.query();
+while(grObject.next()){
+    var future = new GlideDateTime(grObject.getValue('validity_end'));
+    var diff = GlideDateTime.subtract(new GlideDateTime(), future);
+    var dias = (diff.getDayPart() +1);
+    if(dias == '20'){
+        //ativa a flag 'fim de vigencia' e mudar status para aberto
+        grObject.setValue('state', 1);
+        grObject.setValue('fim_de_vigencia', true);
+        grObject.update();
+    }
+}
+]]></script>
+<sys_class_name>sysauto_script</sys_class_name>
+<sys_created_by>gabriel.diogo@aoop.com.br</sys_created_by>
+<sys_created_on>2024-06-11 18:43:10</sys_created_on>
+<sys_id>d5dee5601bbe061068eb0fe1f54bcbcc</sys_id>
+<sys_mod_count>4</sys_mod_count>
+<sys_name>Aoop: [LEG] Fim de vigencia 20 dias</sys_name>
+<sys_package display_value="Tax Legis" source="x_mdbda_tax_legis">d10c9c8f1b704dd44a422021f54bcbe7</sys_package>
+<sys_policy/>
+<sys_scope display_value="Tax Legis">d10c9c8f1b704dd44a422021f54bcbe7</sys_scope>
+<sys_update_name>sysauto_script_d5dee5601bbe061068eb0fe1f54bcbcc</sys_update_name>
+<sys_updated_by>gabriel.diogo@aoop.com.br</sys_updated_by>
+<sys_updated_on>2024-06-12 17:52:49</sys_updated_on>
+<time_zone/>
+<upgrade_safe>false</upgrade_safe>
+</sysauto_script>
+</unload>
